@@ -1,0 +1,34 @@
+.blogListItem {
+	display: flex;
+	flex-direction: column;
+	gap: var(--spacing-small);
+	padding: var(--spacing-base) var(--spacing-large);
+	border: 1px solid var(--secondary-color);
+	border-radius: var(--border-radius-base);
+}
+
+.blogListItem h2 {
+	font-weight: var(--font-weight-bold);
+}
+
+.blogContent {
+	/* To clamp the content to two lines */
+	display: -webkit-box; 
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 2;
+	line-clamp: 2; /* For compatibility */
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.dateAndAuthorWrapper {
+	display: flex;
+	gap: var(--spacing-base);
+}
+
+.author {
+	display: flex;
+	align-items: center;
+	gap: 3px;
+	font-weight: var(--font-weight-bold);
+}
