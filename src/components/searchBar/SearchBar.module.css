@@ -1,0 +1,9 @@
+.searchBar {
+	display: flex;
+	justify-content: space-between;
+}
+
+.searchFieldWrapper {
+	display: flex;
+	gap: var(--spacing-small);	
+}
