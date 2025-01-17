@@ -1,0 +1,45 @@
+/* Color variables */
+:root {
+  --primary-color: #e2e2e3;
+  --secondary-color: #b3d2f0;
+
+  --button-color: #007bff;
+  --hover-color: #0056b3;
+  --active-color: #004085;  
+
+  --success-color: #28a745;
+  --info-color: #17a2b8;
+  --warning-color: #ffc107;
+  --danger-color: #dc3545;
+}
+
+/* Font variables */
+:root {
+  --font-family: 'Roboto', sans-serif;
+
+  --font-size-sm: 0.875rem;
+  --font-size-base: 1rem;
+  --font-size-lg: 1.25rem;
+
+  --font-weight-light: 300;
+  --font-weight-normal: 400;
+  --font-weight-bold: 700;  
+}
+
+/* Spacing variables */
+:root {
+  --spacing-small: 0.5rem;
+  --spacing-base: 1rem;
+  --spacing-large: 1.5rem;
+  --spacing-xlarge: 3rem;
+}
+
+/* Border radius variables */
+:root {
+  --border-radius-sm: 0.25rem;
+  --border-radius-base: 0.5rem;
+  --border-radius-lg: 1rem;
+}
+
+
+

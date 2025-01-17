@@ -1,0 +1,33 @@
+.home__header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: var(--spacing-small) var(--spacing-xlarge);	
+	background-color: var(--secondary-color);
+}
+
+.logoContainer {
+	display: flex;
+	align-items: center;
+	gap: var(--spacing-large);	
+	font-size: 1.5rem;	
+	font-weight: var(--font-weight-bold);	
+}
+
+.logoContainer img {
+	height: calc(var(--spacing-large) * 4);
+	aspect-ratio: 1 / 1;
+	border-radius: var(--border-radius-base);
+}
+
+.logoContainer p {
+	display: inline-block;
+}
+
+.shareButton {
+	display: flex;
+	align-items: center;
+	gap: var(--spacing-small);
+	background-color: var(--button-color);
+	
+}

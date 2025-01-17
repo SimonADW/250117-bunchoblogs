@@ -1,0 +1,9 @@
+.genericButton {
+  background-color: var(--button-color);
+  color: var(--primary-color);
+  padding: var(--spacing-small) var(--spacing-base);
+  border-radius: var(--border-radius-base);
+  border: none;
+
+  
+}
