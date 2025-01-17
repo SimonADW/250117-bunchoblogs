@@ -1,10 +1,15 @@
 .blogListItem {
 	display: flex;
+	align-items: center;
+	border: 1px solid var(--secondary-color);
+	border-radius: var(--border-radius-base);
+}
+
+.blogListItem__contentWrapper {
+	display: flex;
 	flex-direction: column;
 	gap: var(--spacing-small);
 	padding: var(--spacing-base) var(--spacing-large);
-	border: 1px solid var(--secondary-color);
-	border-radius: var(--border-radius-base);
 }
 
 .blogListItem h2 {
@@ -31,4 +36,8 @@
 	align-items: center;
 	gap: 3px;
 	font-weight: var(--font-weight-bold);
+}
+
+.blogListItem img {
+	width: clamp(100px, 25%, 400px);	
 }

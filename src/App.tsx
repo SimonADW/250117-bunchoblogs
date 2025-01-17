@@ -5,7 +5,8 @@ import './App.css';
 import Header from './components/header/Header';
 import SearchBar from './components/searchBar/SearchBar';
 import { useState } from 'react';
-import BlogListItem from './components/blogListItem/BlogListItem';
+import BlogList from './components/bloglist/BlogList';
+
 
 function App() {
   const [blogList, setBlogList] = useState([]);
@@ -15,7 +16,7 @@ function App() {
       <Header>Bunch `o Blogs</Header>
       <main>
         <SearchBar setBloglist={setBlogList} />
-        <BlogListItem />
+        <BlogList />
       </main>
     </>
 
