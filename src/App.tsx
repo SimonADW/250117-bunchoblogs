@@ -9,13 +9,12 @@ import BlogList from './components/bloglist/BlogList';
 
 
 function App() {
-  const [blogList, setBlogList] = useState([]);
 
   return (
     <>
       <Header>Bunch `o Blogs</Header>
       <main>
-        <SearchBar setBloglist={setBlogList} />
+        <SearchBar />
         <BlogList />
       </main>
     </>
