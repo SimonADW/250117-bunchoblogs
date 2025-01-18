@@ -14,7 +14,6 @@ function App() {
     <>
       <Header>Bunch `o Blogs</Header>
       <main>
-        <SearchBar />
         <BlogList />
       </main>
     </>

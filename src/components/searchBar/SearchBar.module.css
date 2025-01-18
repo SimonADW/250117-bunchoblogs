@@ -7,3 +7,15 @@
 	display: flex;
 	gap: var(--spacing-small);	
 }
+
+.searchBar input {
+	padding: var(--spacing-small);
+	border: 1px solid var(--secondary-color);
+	border-radius: var(--border-radius-base);
+}
+
+.searchBar p {
+	font-size: var(--font-size-lg);
+	font-weight: var(--font-weight-bold);
+}
+
