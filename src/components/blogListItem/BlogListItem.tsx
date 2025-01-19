@@ -8,6 +8,7 @@ type BlogPostProps = {
 }
 
 const BlogListItem = ({blogPost}: BlogPostProps) => {
+	const imagePath = `http://localhost:3000/static/images/${blogPost.id}-${blogPost.imageUrl}`; 
 	return (
 		<article className={style.blogListItem}>
 			<div className={style.blogListItem__contentWrapper}>
@@ -21,7 +22,7 @@ const BlogListItem = ({blogPost}: BlogPostProps) => {
 					</div>
 				</div>
 			</div>
-			<img src="" alt={blogPost.title} />
+			<img src={imagePath} alt={blogPost.title} />
 		</article>
 	);
 };
