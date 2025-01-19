@@ -3,8 +3,6 @@ import './assets/styles/reset.css';
 import './assets/styles/variables.css';
 import './App.css';
 import Header from './components/header/Header';
-import SearchBar from './components/searchBar/SearchBar';
-import { useState } from 'react';
 import BlogList from './components/bloglist/BlogList';
 
 
