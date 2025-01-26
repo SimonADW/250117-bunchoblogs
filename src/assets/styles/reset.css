@@ -47,6 +47,11 @@ overflow-wrap: break-word;
 font-weight: 400;
 }
 
+/* Active NavLinks */
+.active {
+	font-weight: var(--font-weight-bold);
+	text-decoration: underline;
+}
 
 /* only needed if you use a JS framework */
 #root, #__next {        

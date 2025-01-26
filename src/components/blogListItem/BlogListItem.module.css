@@ -1,6 +1,5 @@
 .blogListItem {
 	display: flex;
-	align-items: center;
 	border: 1px solid var(--secondary-color);
 	border-radius: var(--border-radius-base);
 	overflow: hidden;
@@ -10,10 +9,16 @@
 
 .blogListItem__contentWrapper {
 	display: flex;
-	flex-direction: column;
+	flex-direction: column;	
 	gap: var(--spacing-small);
 	padding: var(--spacing-base) var(--spacing-large);
+	padding-right: 3rem; 
 }
+
+.blogListItem__contentWrapper div {
+	margin-top: auto;
+}
+
 
 .blogListItem h2 {
 	font-weight: var(--font-weight-bold);

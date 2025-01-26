@@ -2,16 +2,14 @@
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	padding: var(--spacing-small) var(--spacing-xlarge);	
+	padding: var(--spacing-small) var(--spacing-xlarge);
 	background-color: var(--secondary-color);
 }
 
 .logoContainer {
 	display: flex;
 	align-items: center;
-	gap: var(--spacing-large);	
-	font-size: 1.5rem;	
-	font-weight: var(--font-weight-bold);	
+	gap: var(--spacing-large);
 }
 
 .logoContainer img {
@@ -20,8 +18,21 @@
 	border-radius: var(--border-radius-base);
 }
 
-.logoContainer p {
-	display: inline-block;
+.heading {
+	font-size: 3rem;
+	font-weight: var(--font-weight-bold);
+}
+
+.buttonContainer {
+	display: flex;
+	align-items: center;
+	gap: var(--spacing-large);
+}
+
+.navLinks {
+	display: flex;
+	gap: var(--spacing-large);
+	font-weight: var(--font-weight-light);
 }
 
 .shareButton {
@@ -29,5 +40,5 @@
 	align-items: center;
 	gap: var(--spacing-small);
 	background-color: var(--button-color);
-	
 }
+
