@@ -18,11 +18,6 @@
 	border-radius: var(--border-radius-base);
 }
 
-.heading {
-	font-size: 3rem;
-	font-weight: var(--font-weight-bold);
-}
-
 .buttonContainer {
 	display: flex;
 	align-items: center;
@@ -33,12 +28,6 @@
 	display: flex;
 	gap: var(--spacing-large);
 	font-weight: var(--font-weight-light);
-}
-
-.shareButton {
-	display: flex;
-	align-items: center;
-	gap: var(--spacing-small);
-	background-color: var(--button-color);
+	color: var(--primary-color);
 }
 

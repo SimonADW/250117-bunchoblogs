@@ -13,11 +13,6 @@ const SearchBar = ({
 	setSearchInput,
 	numberOfReults,
 }: SearchBarProps) => {
-	// const handleSearch = () => {
-	// 	const filteredPosts = blogPosts.filter(post => post.title.includes(searchInput));
-	// 	setBlogPosts(filteredPosts);
-	// };
-
 	const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
 		const value = event.target.value.toLowerCase();
 		setSearchInput(value);
@@ -26,7 +21,7 @@ const SearchBar = ({
 	return (
 		<>
 			<div className={style.searchBar}>
-				<p>{numberOfReults}</p>
+				<p>{numberOfReults} Blogs</p>
 
 				<div className={style.searchFieldWrapper}>
 					<button>

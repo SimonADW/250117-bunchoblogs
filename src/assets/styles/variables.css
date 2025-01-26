@@ -1,11 +1,11 @@
 /* Color variables */
 :root {
   --primary-color: #e2e2e3;
-  --secondary-color: #b3d2f0;
+  --secondary-color: #272d34;
 
-  --button-color: #007bff;
-  --hover-color: #0056b3;
-  --active-color: #004085;  
+  --button-color: #d000ff;
+  --hover-color: #7100b3;
+  --active-color: #d88d14;  
 
   --success-color: #28a745;
   --info-color: #17a2b8;

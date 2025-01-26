@@ -1,9 +1,9 @@
 import { useEffect, useMemo, useState } from "react";
-import BlogListItem from "../blogListItem/BlogListItem.tsx";
+import BlogListItem from "../BlogListItem/BlogListItem.tsx";
 import style from "./BlogList.module.css";
 import useBlog from "../../hooks/useBlog.ts";
 import LoadingSpinner from "../LoadingSpinner/LoadingSpinner.tsx";
-import SearchBar from "../searchBar/SearchBar.tsx";
+import SearchBar from "../SearchBar/SearchBar.tsx";
 
 const BlogList = () => {
 	const { getBlogPosts, blogPosts, loading } = useBlog();

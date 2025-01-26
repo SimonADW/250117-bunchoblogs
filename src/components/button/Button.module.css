@@ -3,7 +3,12 @@
   color: var(--primary-color);
   padding: var(--spacing-small) var(--spacing-base);
   border-radius: var(--border-radius-base);
-  border: none;
+  border: none;  
+}
 
-  
+.genericButton:hover {
+	background-color: var(--hover-color);	
+}
+.genericButton:active {
+	background-color: var(--active-color);	
 }
