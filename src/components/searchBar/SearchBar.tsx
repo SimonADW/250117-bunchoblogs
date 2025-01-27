@@ -24,9 +24,7 @@ const SearchBar = ({
 				<p>{numberOfReults} Blogs</p>
 
 				<div className={style.searchFieldWrapper}>
-					<button>
-						<TfiSearch />
-					</button>
+					<TfiSearch />
 					<input
 						type="text"
 						placeholder="Search blogs..."

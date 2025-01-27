@@ -1,14 +1,13 @@
-import React from "react";
-import { Blocks } from "react-loader-spinner";
+import { Bars } from "react-loader-spinner";
 import style from "./LoadingSpinner.module.css";
 
 const LoadingSpinner = () => {
 	return (
 		<div className={style.spinnerWrapper}>
-			<Blocks
+			<Bars
 				height="80"
 				width="80"
-				color="#4fa94d"
+				color="#d000ff"
 				ariaLabel="blocks-loading"
 				wrapperStyle={{}}
 				wrapperClass="blocks-wrapper"

@@ -5,6 +5,17 @@
 	overflow: hidden;
 	padding: var(--spacing-base);
 	box-shadow: 2px 2px 8px rgb(192, 200, 202);
+	transition: transform 300ms;
+}
+
+/* Every other card gradient background */
+.blogListItem:nth-child(2n) {
+	background: linear-gradient(120deg, transparent 60%, var(--button-color) 300%);
+}
+
+.blogListItem:hover {
+	transform: scale(1.008);	
+
 }
 
 .blogListItem__contentWrapper {
@@ -21,6 +32,7 @@
 
 
 .blogListItem h2 {
+	font-family:Georgia, 'Times New Roman', Times, serif;
 	font-weight: var(--font-weight-bold);
 }
 
@@ -48,6 +60,7 @@
 
 .blogListItem img {
 	width: clamp(100px, 25%, 200px);	
+	transition: transform 300ms;
 }
 
 @media screen and (max-width: 768px) {
@@ -67,5 +80,4 @@
 	.blogListItem__contentWrapper {
 		padding: var(--spacing-base) 0;
 	}
-
 }

@@ -1,15 +1,23 @@
+
+
+
 .home__header {
 	display: flex;
 	justify-content: space-between;
-	align-items: center;
-	padding: var(--spacing-small) var(--spacing-xlarge);
-	background-color: var(--secondary-color);
+	padding: var(--spacing-base) var(--spacing-xlarge);
+	background-color: var(--secondary-color);	
 }
 
 .logoContainer {
 	display: flex;
 	align-items: center;
 	gap: var(--spacing-large);
+}
+
+.logoContainer h1 {
+	/* Push heading down */
+	transform: translateY(5px);
+	font-family: 'Outward-block';
 }
 
 .logoContainer img {

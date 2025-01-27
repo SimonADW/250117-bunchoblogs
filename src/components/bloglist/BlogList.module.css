@@ -1,5 +1,6 @@
 .blogList {
 	display: flex;
 	flex-direction: column;
-	gap: var(--spacing-base)
+	gap: var(--spacing-base);
+	margin-bottom: calc(var(--spacing-large) * 8);
 }
