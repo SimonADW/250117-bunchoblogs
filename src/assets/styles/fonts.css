@@ -1,0 +1,12 @@
+/* CREDITS: Outward by Raoul Audouin. Distributed by velvetyne.fr. */
+
+@font-face {
+font-family: 'Outward-block';
+	src: url('../fonts/outward-master/fonts/ttf/outward-block.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+
+body {
+	font-family: 'Outward', sans-serif;
+}

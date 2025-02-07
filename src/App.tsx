@@ -13,23 +13,21 @@ import Footer from "./components/Footer/Footer";
 function App() {
 	return (
 		<>
-		<body>			
-			<BrowserRouter>
-				<Header>					
-					<NavLink to="/">Home</NavLink>
-					<NavLink to="/blogs">Blog Posts</NavLink>
-				</Header>
+		<BrowserRouter>
+			<Header>					
+				<NavLink to="/">Home</NavLink>
+				<NavLink to="/blogs">Blog Posts</NavLink>
+			</Header>
 
-				<main>
-					<Routes>
-						<Route path="/" element={<Home />} />
-						<Route path="/blogs" element={<BlogList />} />
-						<Route path="/blogpost" element={<BlogPost />} />
-					</Routes>
-				</main>
-				<Footer />
-			</BrowserRouter>
-		</body>
+			<main>
+				<Routes>
+					<Route path="/" element={<Home />} />
+					<Route path="/blogs" element={<BlogList />} />
+					<Route path="/blogpost" element={<BlogPost />} />
+				</Routes>
+			</main>
+			<Footer />
+		</BrowserRouter>
 		</>
 	);
 }

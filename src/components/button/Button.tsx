@@ -3,9 +3,9 @@ import style from './Button.module.css'
 
 
 type ButtonProps = {
-	  onClick: () => void,
-	  children: React.ReactNode
-}
+	  onClick?: () => void,
+	  children: React.ReactNode	  
+} & React.HTMLAttributes<HTMLButtonElement>
 
 const Button = ({children , ...delegated}: ButtonProps) => {
 

@@ -10,9 +10,9 @@ const BlogList = () => {
 	const [searchInput, setSearchInput] = useState("");
 
 	console.log("Bloglist rendered");
-	
+
 	useEffect(() => {
-		getBlogPosts();		
+		getBlogPosts();
 	}, [getBlogPosts]);
 
 	const filteredBlogPosts = useMemo(() => {
@@ -21,23 +21,27 @@ const BlogList = () => {
 		);
 	}, [searchInput, blogPosts]);
 
-	
 	return (
 		<>
-			<SearchBar
-				searchInput={searchInput}
-				setSearchInput={setSearchInput}
-				numberOfReults={filteredBlogPosts.length}				
-			/>
-			{loading ? (
-				<LoadingSpinner />
-			) : (
-				<ul className={style.blogList}>
-					{filteredBlogPosts.map((blogPost) => (
-						<BlogListItem key={blogPost.id} blogPost={blogPost} />
-					))}
-				</ul>
-			)}
+			<div className={style.blogListwrapper}>
+				<SearchBar
+					searchInput={searchInput}
+					setSearchInput={setSearchInput}
+					numberOfReults={filteredBlogPosts.length}
+				/>
+				{loading ? (
+					<LoadingSpinner />
+				) : (
+					<ul className={style.blogList}>
+						{filteredBlogPosts.map((blogPost) => (
+							<BlogListItem
+								key={blogPost.id}
+								blogPost={blogPost}
+							/>
+						))}
+					</ul>
+				)}
+			</div>
 		</>
 	);
 };
