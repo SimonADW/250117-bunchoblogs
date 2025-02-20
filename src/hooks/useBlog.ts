@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { BlogPost } from "../types/types";
+import { BlogPost, BlogPostType } from "../types/types";
 
 const useBlog = ()=> {	
 	const [blogPosts, setBlogPosts] = useState<BlogPost[]>([]);
@@ -29,7 +29,7 @@ const useBlog = ()=> {
 	}, []);
 
 	// FETCH SINGLE BLOGPOST
-	const getSingleBlogPost = React.useCallback(async (id: number)=> {
+	const getSingleBlogPost = React.useCallback(async (id: number): Promise<BlogPostType>=> {
 		setLoading(true);	
 		try {
 			const response = await fetch(`http://localhost:3000/blogs/${id}`);
@@ -38,7 +38,8 @@ const useBlog = ()=> {
 				throw new Error(`HTTP Error, status: ${response.status}`);
 			}
 			
-			return await response.json();			
+			const data = await response.json();						
+			return data;
 		} catch(error) {
 			if(error instanceof Error) {
 				throw new Error(error.message);

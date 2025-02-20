@@ -1,9 +1,9 @@
 import style from "./BlogListItem.module.css";
 import { TfiPencil } from "react-icons/tfi";
-import type { BlogPost } from "../../types/types";
+import type { BlogPostType } from "../../types/types";
 
 type BlogPostProps = {
-	blogPost: BlogPost;
+	blogPost: BlogPostType;
 };
 
 // Blog list item, anchor-link to the respective blog-page

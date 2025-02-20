@@ -25,6 +25,25 @@ app.get('/', (req, res) => {
 	}, 1000);
 });
 
+
+// Draft single blog post serving ----------------------
+// Get a specific blog by ID
+app.get("/blogs/:id", (req, res) => {
+	console.log("SINGLE Request received");
+	try {
+		const blog = blogPosts[Number(req.params.id - 1)];  // Use index of the blogpost
+		setTimeout(() => {
+			// Simulate Loadtime
+			res.status(200).json(blog);
+		}, 1000);
+
+		if (!blog) return res.status(404).json({ message: "Blog not found" });
+
+	} catch (err) {
+		res.status(500).json({ message: "Server error" });
+	}
+});
+
 // Start the server
 app.listen(3000, () => {
 	console.log('Server listening on port 3000');

@@ -5,7 +5,7 @@ export type ChildrenProps = {
 	children: React.ReactNode
 }
 
-export type BlogPost = {
+export type BlogPostType = {
 	id: number;
 	title: string;
 	content: string;
