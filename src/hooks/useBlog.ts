@@ -5,6 +5,7 @@ const useBlog = ()=> {
 	const [blogPosts, setBlogPosts] = useState<BlogPost[]>([]);
 	const [loading, setLoading] = useState(false);
 
+	// FETCH ALL BLOGSPOSTS
 	const getBlogPosts = React.useCallback(async () => {
 		setLoading(true);		
 		try {
@@ -19,7 +20,29 @@ const useBlog = ()=> {
 			setLoading(false);
 		}
 	}, []);
-	
+
+	// FETCH SINGLE BLOGPOST
+	const getSingleBlogPost = React.useCallback(async (id: number)=> {
+		setLoading(true);	
+		try {
+			const response = await fetch(`http://localhost:3000/blogs/${id}`);
+			
+			if (!response.ok) {
+				throw new Error(`HTTP Error, status: ${response.status}`);
+			}
+			
+			return await response.json();			
+		} catch(error) {
+			if(error instanceof Error) {
+				throw new Error(error.message);
+			} else {
+				throw new Error("An unknown error has occurred");
+			}
+		} finally {
+			setLoading(false);	
+		}			
+	}, [])
+		
 	const postBlogPost = async () => {
 		console.log("Posting blog post...");
 	}
@@ -28,7 +51,7 @@ const useBlog = ()=> {
 		console.log("Deleting blog post...");
 	}
 
-	return { blogPosts, getBlogPosts, postBlogPost, deleteBlogPost, loading };	
+	return { blogPosts, getBlogPosts, postBlogPost, deleteBlogPost, getSingleBlogPost, loading };	
 }
 
 export default useBlog;
