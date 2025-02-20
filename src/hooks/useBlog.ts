@@ -10,15 +10,22 @@ const useBlog = ()=> {
 		setLoading(true);		
 		try {
 			const response = await fetch("http://localhost:3000/");
-			const data = await response.json();			
-			setBlogPosts(data);			
-			console.log("Blog list fetched: ", data);
 			
-		} catch (error) {
-			console.error("Error fetching blog list: ", error);			
+			if (!response.ok) {
+				throw new Error(`HTTP Error, status: ${response.status}`);
+			}
+			
+			const data = await response.json();			
+			setBlogPosts(data);					
+		} catch(error) {
+			if(error instanceof Error) {
+				throw new Error(error.message);
+			} else {
+				throw new Error("An unknown error has occurred");
+			}
 		} finally {
-			setLoading(false);
-		}
+			setLoading(false);	
+		}		
 	}, []);
 
 	// FETCH SINGLE BLOGPOST
