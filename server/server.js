@@ -26,8 +26,7 @@ app.get('/', (req, res) => {
 });
 
 
-// Draft single blog post serving ----------------------
-// Get a specific blog by ID
+// Single blog post serving ----------------------
 app.get("/blogs/:id", (req, res) => {
 	console.log("SINGLE Request received");
 	try {

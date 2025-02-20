@@ -3,29 +3,36 @@ import useBlog from "../hooks/useBlog";
 import React from "react";
 import LoadingSpinner from "../components/LoadingSpinner/LoadingSpinner";
 import { BlogPostType } from "../types/types";
+import Button from "../components/Button/Button";
 
-
+// Page to fetch and render single blogpost
+// TODO: Clean up fetch (renders unnececary?)
 const BlogPost = () => {
-	const params = useParams();
+  const [blogPost, setBlogPost] = React.useState<null | BlogPostType>(null);
 	const { getSingleBlogPost, loading } = useBlog();
-	const [blogPost, setBlogPost] = React.useState<null | BlogPostType>(null);
+	const params = useParams();
 
-  const handleGetSingleBlogPost = async () => {    
-    const currentBlogpost: BlogPostType = await getSingleBlogPost(Number(params.id));
-    setBlogPost(currentBlogpost);
-  }
+	React.useEffect(() => {
+		const handleGetSingleBlogPost = async () => {
+			if (!params.id) return;
 
-	React.useEffect(()=> {
-    handleGetSingleBlogPost()
-  }, [params.id]);
+			try {
+				const currentBlogpost: BlogPostType = await getSingleBlogPost(
+					Number(params.id)
+				);
+				setBlogPost(currentBlogpost);
+			} catch (error) {
+				console.log("Error fetching blog: ", error);
+			}
+		};
 
-  console.log(blogPost);
-  
+		handleGetSingleBlogPost();
+	}, [params.id, getSingleBlogPost]);
 
-	if (!blogPost || loading) {
-		return <LoadingSpinner />;
-	}
+	console.log(blogPost);
 
+	if (loading) return <LoadingSpinner />;
+	if (!blogPost) return <p>Sorry, we cannot find the blog post, please try to strike gold again from <Button href="/blogs">here</Button></p>;
 	return (
 		<>
 			<div>

@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import { BlogPost, BlogPostType } from "../types/types";
+import { BlogPostType } from "../types/types";
 
 const useBlog = ()=> {	
-	const [blogPosts, setBlogPosts] = useState<BlogPost[]>([]);
+	const [blogPosts, setBlogPosts] = useState<BlogPostType[]>([]);
 	const [loading, setLoading] = useState(false);
 
 	// FETCH ALL BLOGSPOSTS
