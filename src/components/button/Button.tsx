@@ -1,20 +1,20 @@
-import React from 'react'
-import style from './Button.module.css'
-
+import React from "react";
+import style from "./Button.module.css";
 
 type ButtonProps = {
-	  onClick?: () => void,
-	  children: React.ReactNode	  
-} & React.HTMLAttributes<HTMLButtonElement>
+	onClick?: () => void;
+	href?: string;
+	children: React.ReactNode;
+} & React.HTMLAttributes<HTMLButtonElement | HTMLAnchorElement>;
 
-const Button = ({children , ...delegated}: ButtonProps) => {
+// Button that renders anchor if href prop is present, else a button
+const Button = ({ children, href, ...delegated }: ButtonProps) => {
+	const Tag = href ? "a" : "button";
+	return (
+		<Tag href={href} className={style.genericButton} {...delegated}>
+			{children}
+		</Tag>
+	);
+};
 
-  return (
-	<button 
-	className={style.genericButton}	
-	{...delegated}
-	>{children}</button>
-  )
-}
-
-export default Button
+export default Button;
