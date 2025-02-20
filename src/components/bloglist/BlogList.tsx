@@ -9,12 +9,11 @@ const BlogList = () => {
 	const { getBlogPosts, blogPosts, loading } = useBlog();
 	const [searchInput, setSearchInput] = useState("");
 
-	console.log("Bloglist rendered");
-
 	useEffect(() => {
 		getBlogPosts();
 	}, [getBlogPosts]);
 
+	// Filter blogspost based on search input
 	const filteredBlogPosts = useMemo(() => {
 		return blogPosts.filter((post) =>
 			post.title.toLowerCase().includes(searchInput)

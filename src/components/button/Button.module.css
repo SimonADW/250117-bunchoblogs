@@ -4,6 +4,7 @@
   padding: var(--spacing-small) var(--spacing-base);
   border-radius: var(--border-radius-base);
   border: none;  
+  text-align: center;
 }
 
 .genericButton:hover {

@@ -4,7 +4,8 @@ import { ChildrenProps } from "../../types/types";
 import Button from "../Button/Button";
 import GradientHeading from "../Gradient-heading/GradientHeading";
 
-const Header = ({ children }: ChildrenProps) => {
+// Component renders NavLink children in buttonContainer/navLinks
+const Header = ({ children }: ChildrenProps) => {	
 	return (
 		<header className={style.home__header}>
 			<div className={style.logoContainer}>

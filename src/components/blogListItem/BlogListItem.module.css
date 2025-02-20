@@ -12,9 +12,9 @@
 	background: linear-gradient(120deg, transparent 60%, var(--button-color) 300%);
 }
 
+/* TODO: Fix pixel snap-back after scale() animation */
 .blogListItem:hover {
-	transform: scale(1.008);	
-
+	transform: scale(1.008);
 }
 
 .blogListItem__contentWrapper {

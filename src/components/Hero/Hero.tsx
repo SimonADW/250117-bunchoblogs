@@ -7,7 +7,7 @@ const Hero = () => {
 	<section className={style.heroSection}>
       <h2>Welcome to Bunch o' Blogs</h2>
       <p>Explore captivating stories, trends, and insights across various genres of music.</p>
-      <a href="/blogs"><Button style={{width: "12rem"}}>Get Started</Button></a>
+      <Button href="/blogs" style={{width: "12rem"}}>Get Started</Button>
   	</section>
   )
 }

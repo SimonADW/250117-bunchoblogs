@@ -16,7 +16,7 @@ const SearchBar = ({
 	const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
 		const value = event.target.value.toLowerCase();
 		setSearchInput(value);
-	};
+	};	
 
 	return (
 		<>
@@ -25,7 +25,7 @@ const SearchBar = ({
 
 				<div className={style.searchFieldWrapper}>
 					<TfiSearch />
-					<input
+					<input 
 						type="text"
 						placeholder="Search blogs..."
 						onChange={handleChange}
