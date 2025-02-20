@@ -1,9 +1,17 @@
-
+import { useParams } from "react-router-dom";
 
 const BlogPost = () => {
-  return (
-	<div>BlogPost</div>
-  )
-}
+	const params = useParams();
 
-export default BlogPost
+	return (
+		<>
+			<div>Blogpost id: {params.id} </div>
+			<p>
+				Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dicta
+				inventore nisi sapiente!
+			</p>
+		</>
+	);
+};
+
+export default BlogPost;

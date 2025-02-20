@@ -6,11 +6,12 @@ type BlogPostProps = {
 	blogPost: BlogPost;
 };
 
+// Blog list item, anchor-link to the respective blog-page
 const BlogListItem = ({ blogPost }: BlogPostProps) => {
 	const imagePath = `http://localhost:3000/static/images/${blogPost.id}-${blogPost.imageUrl}`;
 
 	return (
-		<article className={style.blogListItem}>
+		<a href={`/blogs/${blogPost.id}`} className={style.blogListItem}>
 			<div className={style.blogListItem__contentWrapper}>
 				<h2>{blogPost.title}</h2>
 				<p className={style.blogContent}>{blogPost.content}</p>
@@ -23,7 +24,7 @@ const BlogListItem = ({ blogPost }: BlogPostProps) => {
 				</div>
 			</div>
 			<img src={imagePath} alt={blogPost.title} />
-		</article>
+		</a>
 	);
 };
 

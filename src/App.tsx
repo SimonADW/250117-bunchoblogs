@@ -23,7 +23,7 @@ function App() {
 				<Routes>
 					<Route path="/" element={<Home />} />
 					<Route path="/blogs" element={<BlogList />} />
-					<Route path="/blogpost" element={<BlogPost />} />
+					<Route path="/blogs/:id" element={<BlogPost />} />
 				</Routes>
 			</main>
 			<Footer />
