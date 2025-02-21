@@ -1,0 +1,26 @@
+.blogPostHeading {
+	font-family: Georgia, 'Times New Roman', Times, serif;
+	font-size: calc(var(--font-size-lg) * 3) ;
+}
+
+.blogPost__AuthorDateWrapper {
+	display: flex;
+	gap: var(--spacing-base);
+	font-weight: var(--font-weight-light);	
+}
+
+.blogPost__image {
+	width: clamp(200px, 100%, 900px);
+}
+
+.blogPost__content {
+	font-size: var(--font-size-lg);
+	line-height: 1.8;
+}
+
+
+@media screen and (max-width: 768px) {
+	.blogPostHeading {
+		font-size: calc(var(--font-size-lg) * 2) 
+	}
+}
