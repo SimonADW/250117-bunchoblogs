@@ -3,11 +3,12 @@ import style from "./Header.module.css";
 import { ChildrenProps } from "../../types/types";
 import Button from "../Button/Button";
 import GradientHeading from "../Gradient-heading/GradientHeading";
-import useModal from "../../hooks/useModal";
+import SocialModal from "../SocialModal/SocialModal";
+import useToggle from "../../hooks/useToggle";
 
 // Component renders NavLink children in buttonContainer/navLinks
-const Header = ({ children }: ChildrenProps) => {	
-	const { setIsVisible } = useModal();
+const Header = ({ children }: ChildrenProps) => {
+	const [ modalIsVisible, toggleModal ] = useToggle(false);
 
 	return (
 		<header className={style.home__header}>
@@ -25,7 +26,8 @@ const Header = ({ children }: ChildrenProps) => {
 
 			<div className={style.buttonContainer}>
 				<span className={style.navLinks}>{children}</span>
-				<Button onClick={()=> setIsVisible(true)}>Share</Button>
+				<Button onClick={toggleModal}>Share</Button>
+				{modalIsVisible && <SocialModal handleDismiss={toggleModal}/>}
 			</div>
 		</header>
 	);
