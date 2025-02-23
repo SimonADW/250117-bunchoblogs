@@ -9,8 +9,12 @@ import { BrowserRouter, Routes, Route, NavLink } from "react-router-dom";
 import Home from "./pages/Home";
 import BlogPost from "./components/BlogPost/BlogPost";
 import Footer from "./components/Footer/Footer";
+import SocialModal from "./components/SocialModal/SocialModal";
+import useModal from "./hooks/useModal";
 
 function App() {
+	const {isVisible: modalIsVisible } = useModal()
+	
 	return (
 		<>
 		<BrowserRouter>
@@ -20,6 +24,7 @@ function App() {
 			</Header>
 
 			<main>
+				{modalIsVisible && <SocialModal />}
 				<Routes>
 					<Route path="/" element={<Home />} />
 					<Route path="/blogs" element={<BlogList />} />

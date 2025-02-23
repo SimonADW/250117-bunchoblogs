@@ -3,9 +3,12 @@ import style from "./Header.module.css";
 import { ChildrenProps } from "../../types/types";
 import Button from "../Button/Button";
 import GradientHeading from "../Gradient-heading/GradientHeading";
+import useModal from "../../hooks/useModal";
 
 // Component renders NavLink children in buttonContainer/navLinks
 const Header = ({ children }: ChildrenProps) => {	
+	const { setIsVisible } = useModal();
+
 	return (
 		<header className={style.home__header}>
 			<div className={style.logoContainer}>
@@ -22,7 +25,7 @@ const Header = ({ children }: ChildrenProps) => {
 
 			<div className={style.buttonContainer}>
 				<span className={style.navLinks}>{children}</span>
-				<Button onClick={() => console.log("Shared")}>Share</Button>
+				<Button onClick={()=> setIsVisible(true)}>Share</Button>
 			</div>
 		</header>
 	);
