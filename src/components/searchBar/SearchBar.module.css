@@ -5,6 +5,7 @@
 }
 
 .searchFieldWrapper {
+	position: relative;
 	display: flex;
 	align-items: center;
 	gap: var(--spacing-small);	
@@ -21,3 +22,13 @@
 	font-weight: var(--font-weight-bold);
 }
 
+.clearSearchButton {
+	position: absolute;
+	right: 5px;
+	width: 26px;
+	height: 26px;
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}

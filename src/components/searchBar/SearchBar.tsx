@@ -1,6 +1,7 @@
 import React from "react";
 import style from "./SearchBar.module.css";
 import { TfiSearch } from "react-icons/tfi";
+import { X as Close } from "react-feather";
 
 type SearchBarProps = {
 	searchInput: string;
@@ -13,10 +14,11 @@ const SearchBar = ({
 	setSearchInput,
 	numberOfReults,
 }: SearchBarProps) => {
+	const inputRef = React.useRef<HTMLInputElement>(null);
 	const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
 		const value = event.target.value.toLowerCase();
 		setSearchInput(value);
-	};	
+	};
 
 	return (
 		<>
@@ -25,12 +27,23 @@ const SearchBar = ({
 
 				<div className={style.searchFieldWrapper}>
 					<TfiSearch />
-					<input 
+					<input
 						type="text"
 						placeholder="Search blogs..."
 						onChange={handleChange}
 						value={searchInput}
+						ref={inputRef}
 					/>
+					<button
+						aria-roledescription="clear search field"
+						className={style.clearSearchButton}
+						onClick={() => {
+							setSearchInput("");
+							inputRef.current!.focus();
+						}}
+					>
+						<Close size={16} />
+					</button>
 				</div>
 			</div>
 		</>
