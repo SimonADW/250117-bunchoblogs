@@ -23,8 +23,7 @@ const GradientHeading = ({
 				background: `linear-gradient(${angleDegrees}deg, ${color1}, ${color2})`,
 				color: "transparent",
 				backgroundClip: "text",
-				// Other styles
-				fontSize: "6rem",
+				// Other styles				
 				letterSpacing: 4
 			}}
 		>

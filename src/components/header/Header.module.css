@@ -15,6 +15,7 @@
 	/* Push heading down */
 	transform: translateY(5px);
 	font-family: 'Outward-block';
+	font-size: 6rem;
 }
 
 .logoContainer img {
@@ -43,9 +44,18 @@
 		padding: var(--spacing-base) var(--spacing-base);
 	}
 
+	.logoContainer h1 {
+		font-size: 5rem;
+	}
+
 	.buttonContainer {
+		display: flex;
 		width: 100%;
-		justify-content: space-between;
-		align-items: end;
+		align-items: end;		
+		gap: 0;
+	}
+
+	.buttonContainer button {
+		margin-left: auto;
 	}
 }
