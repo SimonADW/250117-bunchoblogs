@@ -27,7 +27,11 @@ const Header = ({ children }: ChildrenProps) => {
 			<div className={style.buttonContainer}>
 				<span className={style.navLinks}>{children}</span>
 				<Button onClick={toggleModal}>Share</Button>
-				{modalIsVisible && <SocialModal handleDismiss={toggleModal}/>}
+
+				{/* Wrap modal to prevent SocialModal FocusLock to trigger flex gap */}
+				<div className={style.socialWrapper}>
+					{modalIsVisible && <SocialModal handleDismiss={toggleModal}/>}
+				</div>
 			</div>
 		</header>
 	);
