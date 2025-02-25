@@ -30,7 +30,7 @@ const BlogPost = () => {
 		handleGetSingleBlogPost();
 	}, [params.id, getSingleBlogPost]);
 
-	console.log(blogPost);
+	
 
 	let imagePath;
 	if (blogPost) {
@@ -46,12 +46,15 @@ const BlogPost = () => {
 			</p>
 		);
 
+		const date = new Date(blogPost.date);
+		const formattedDate = date.toLocaleDateString("en-US", {year: "numeric", month: "long", day: "numeric"});
+
 	return (
 		<>
 			<h1 className={style.blogPostHeading}>{blogPost.title}</h1>
 			<div className={style.blogPost__AuthorDateWrapper}>
-				<span>{blogPost.author}</span>
-				<span>{blogPost.date}</span>
+				<span className={style.blogPost__author}>{blogPost.author}</span>
+				<span>{formattedDate}</span>
 			</div>
 			<img src={imagePath} alt={blogPost.title} className={style.blogPost__image}></img>
 			<p className={style.blogPost__content}>{blogPost.content}</p>

@@ -9,6 +9,11 @@
 	font-weight: var(--font-weight-light);	
 }
 
+.blogPost__author {
+	font-weight: var(--font-weight-bold);
+}
+
+
 .blogPost__image {
 	width: clamp(200px, 100%, 900px);
 }
