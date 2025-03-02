@@ -46,8 +46,9 @@ const BlogPost = () => {
 			</p>
 		);
 
-		const date = new Date(blogPost.date);
-		const formattedDate = date.toLocaleDateString("en-US", {year: "numeric", month: "long", day: "numeric"});
+	// Format date
+	const date = new Date(blogPost.date);
+	const formattedDate = date.toLocaleDateString("en-US", {year: "numeric", month: "long", day: "numeric"});
 
 	return (
 		<>

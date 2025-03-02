@@ -1,15 +1,17 @@
 .blogListItem {
-	display: flex;
+	
 	border: 1px solid lightgray;
 	border-radius: var(--border-radius-base);
 	overflow: hidden;
 	box-shadow: 2px 2px 8px rgb(192, 200, 202);
+	display: flex;
+	background-color: white;
 	transition: transform 300ms;
 }
 
 /* Every other card gradient background */
 .blogListItem:nth-child(2n) {
-	background: linear-gradient(120deg, transparent 60%, var(--button-color) 300%);
+	background: linear-gradient(120deg, white 60%, var(--button-color) 300%);
 }
 
 /* TODO: Fix pixel snap-back after scale() animation */

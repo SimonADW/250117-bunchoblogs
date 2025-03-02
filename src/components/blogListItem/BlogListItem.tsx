@@ -10,7 +10,7 @@ type BlogPostProps = {
 const BlogListItem = ({ blogPost }: BlogPostProps) => {
 	const imagePath = `http://localhost:3000/static/images/${blogPost.id}-${blogPost.imageUrl}`;
 
-	
+	// Format date
 	const date = new Date(blogPost.date);
 	const formattedDate = date.toLocaleDateString("en-US", {year: "numeric", month: "long", day: "numeric"});
 

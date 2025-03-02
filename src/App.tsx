@@ -9,6 +9,7 @@ import { BrowserRouter, Routes, Route, NavLink } from "react-router-dom";
 import Home from "./pages/Home";
 import BlogPost from "./components/BlogPost/BlogPost";
 import Footer from "./components/Footer/Footer";
+import BackgroundDot from "./components/BackgroundDot/BackgroundDot";
 
 function App() {	
 	
@@ -21,7 +22,7 @@ function App() {
 			</Header>
 
 			<main>
-			
+				<BackgroundDot />
 				<Routes>
 					<Route path="/" element={<Home />} />
 					<Route path="/blogs" element={<BlogList />} />
