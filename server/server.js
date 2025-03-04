@@ -2,7 +2,10 @@ const path = require('path');
 const express = require('express');
 const app = express();
 const cors = require('cors');
-const blogPosts = require('./data.js');
+const { loadBlogPosts, addBlogPost } = require('./data.js');
+
+// Get blogposts from data.json (via data.js)
+const blogPosts = loadBlogPosts();
 
 // Satisfy CORS policy
 app.use(
@@ -42,6 +45,7 @@ app.get("/blogs/:id", (req, res) => {
 		res.status(500).json({ message: "Server error" });
 	}
 });
+
 
 // Start the server
 app.listen(3000, () => {
