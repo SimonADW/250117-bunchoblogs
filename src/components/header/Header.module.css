@@ -37,6 +37,19 @@
 	color: var(--primary-color);
 }
 
+.profileAndNickContainer {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.nickName {
+	position: absolute;
+	bottom: -1.5rem;
+	color: var(--primary-color);
+}
+
 
 @media screen and (max-width: 767px) {	
 	.home__header {

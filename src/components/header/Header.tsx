@@ -10,7 +10,7 @@ import { useAuth0 } from "@auth0/auth0-react";
 // Component renders NavLink children in buttonContainer/navLinks
 const Header = ({ children }: ChildrenProps) => {
 	const [modalIsVisible, toggleModal] = useToggle(false);
-	const { loginWithRedirect, logout, isAuthenticated, isLoading } = useAuth0();
+	const { loginWithRedirect, logout, isAuthenticated, isLoading, user } = useAuth0();
 	
 	
 	return (
@@ -37,7 +37,11 @@ const Header = ({ children }: ChildrenProps) => {
 
 				{/* Auth conditional render of button here */}
 				{isAuthenticated && !isLoading ? (
-					<Button onClick={() => logout()}>Sign Out</Button>
+					<div className={style.profileAndNickContainer}>
+						<Button onClick={() => logout()}>Sign Out</Button>
+						<p className={style.nickName}>{user?.nickname}</p>	
+					</div>
+
 				) : (
 					<Button onClick={() => loginWithRedirect()}>Log In</Button>
 				)}
