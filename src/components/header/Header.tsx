@@ -5,11 +5,14 @@ import Button from "../Button/Button";
 import GradientHeading from "../Gradient-heading/GradientHeading";
 import SocialModal from "../SocialModal/SocialModal";
 import useToggle from "../../hooks/useToggle";
+import { useAuth0 } from "@auth0/auth0-react";
 
 // Component renders NavLink children in buttonContainer/navLinks
 const Header = ({ children }: ChildrenProps) => {
-	const [ modalIsVisible, toggleModal ] = useToggle(false);
-
+	const [modalIsVisible, toggleModal] = useToggle(false);
+	const { loginWithRedirect, logout, isAuthenticated, isLoading } = useAuth0();
+	
+	
 	return (
 		<header className={style.home__header}>
 			<div className={style.logoContainer}>
@@ -25,12 +28,25 @@ const Header = ({ children }: ChildrenProps) => {
 			</div>
 
 			<div className={style.buttonContainer}>
-				<span className={style.navLinks}>{children}</span>
+				<span className={style.navLinks}>
+					{/* Renders NavLink children here */}
+					{children}
+				</span>
+
 				<Button onClick={toggleModal}>Share</Button>
+
+				{/* Auth conditional render of button here */}
+				{isAuthenticated && !isLoading ? (
+					<Button onClick={() => logout()}>Sign Out</Button>
+				) : (
+					<Button onClick={() => loginWithRedirect()}>Log In</Button>
+				)}
 
 				{/* Wrap modal to prevent SocialModal FocusLock to snap left (trigger flex gap) */}
 				<div className={style.socialWrapper}>
-					{modalIsVisible && <SocialModal handleDismiss={toggleModal}/>}
+					{modalIsVisible && (
+						<SocialModal handleDismiss={toggleModal} />
+					)}
 				</div>
 			</div>
 		</header>

@@ -11,8 +11,8 @@ import BlogPost from "./components/BlogPost/BlogPost";
 import Footer from "./components/Footer/Footer";
 import BackgroundDot from "./components/BackgroundDot/BackgroundDot";
 
+
 function App() {	
-	
 	return (
 		<>
 		<BrowserRouter>

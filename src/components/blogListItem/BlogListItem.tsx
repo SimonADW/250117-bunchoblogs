@@ -1,6 +1,7 @@
 import style from "./BlogListItem.module.css";
 import { TfiPencil } from "react-icons/tfi";
 import type { BlogPostType } from "../../types/types";
+import { Link } from "react-router-dom";
 
 type BlogPostProps = {
 	blogPost: BlogPostType;
@@ -15,7 +16,7 @@ const BlogListItem = ({ blogPost }: BlogPostProps) => {
 	const formattedDate = date.toLocaleDateString("en-US", {year: "numeric", month: "long", day: "numeric"});
 
 	return (
-		<a href={`/blogs/${blogPost.id}`} className={style.blogListItem}>
+		<Link to={`/blogs/${blogPost.id}`} className={style.blogListItem}>
 			<div className={style.blogListItem__contentWrapper}>
 				<h2>{blogPost.title}</h2>
 				<p className={style.blogContent}>{blogPost.content}</p>
@@ -28,7 +29,7 @@ const BlogListItem = ({ blogPost }: BlogPostProps) => {
 				</div>
 			</div>
 			<img src={imagePath} alt={blogPost.title} />
-		</a>
+		</Link>
 	);
 };
 
