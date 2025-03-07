@@ -1,0 +1,62 @@
+.userContainer {
+	position: relative;	
+	display: flex;
+	align-items: center;
+	background: var(--secondary-color);
+}
+
+.userButton {
+	width: 2.2rem;
+	height: 2.2rem;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 50%;
+	border-color: var(--primary-color);
+	background-color: var(--primary-color);		
+}
+
+.userButton img {
+	width: 100%;
+	border-radius: 50%;
+}
+
+.userDropdown {
+	position: absolute;
+	top: 3.5rem;
+	right: 0;
+	z-index: 1;
+
+	width: 16rem;
+	border-radius: var(--border-radius-base);
+	overflow: hidden;
+	box-shadow: 3px 3px 8px 0px var(--secondary-color);
+
+	display: flex;
+	flex-direction: column;
+	background-color: white;	
+}
+
+.userDropdown hr {	
+	border-top: 3px solid var(--button-color);
+}
+
+.dropdownNickname {
+	/* background: linear-gradient(var(--primary-color), rgb(240, 215, 187));  */
+} 
+
+.dropdownNickname,  
+.userDropdown button { 
+	text-align: center;
+	font-weight: var(--font-weight-bold);
+	padding: 1rem 0.8rem;
+}
+
+.dropDownLink {
+	padding: 1rem 0.8rem;
+}
+
+.dropDownLink:hover,
+.userDropdown button:hover {	
+	background-color: rgb(197, 194, 194);
+}

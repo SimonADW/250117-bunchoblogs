@@ -25,7 +25,7 @@ app.get('/', (req, res) => {
 	setTimeout(() => {
 		// Simulate Loadtime
 		res.status(200).json(blogPosts);
-	}, 1000);
+	}, 300);
 });
 
 
@@ -37,7 +37,7 @@ app.get("/blogs/:id", (req, res) => {
 		setTimeout(() => {
 			// Simulate Loadtime
 			res.status(200).json(blog);
-		}, 1000);
+		}, 300);
 
 		if (!blog) return res.status(404).json({ message: "Blog not found" });
 
