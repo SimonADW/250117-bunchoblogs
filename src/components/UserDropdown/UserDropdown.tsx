@@ -4,11 +4,17 @@ import { Link } from "react-router-dom";
 import { useAuth0 } from "@auth0/auth0-react";
 import { User } from "react-feather";
 import useToggle from "../../hooks/useToggle";
+import useKeydown from "../../hooks/useKeydown";
 
 const UserDropdown = () => {
-	// const [dropDownVisible, setDropDownVisible] = React.useState(false);
 	const [dropDownVisible, toggleDropdown] = useToggle(false);
 	const { loginWithRedirect, logout, isAuthenticated, user } = useAuth0();
+
+	useKeydown("Escape", handleDismiss);
+
+	function handleDismiss() {
+		toggleDropdown(false);
+	};
 
 	// Capitalize first letter of nickname
 	const capitalize = (str: string | undefined) => {

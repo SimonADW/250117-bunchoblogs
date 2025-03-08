@@ -1,7 +1,5 @@
 import React from "react";
 
-
-
 function useKeydown(key: string, callback: ()=> void) {
 	React.useEffect(() => {
 		function handleKeydown(event: KeyboardEvent) {

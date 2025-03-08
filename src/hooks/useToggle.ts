@@ -2,7 +2,7 @@ import React from "react"
  
 type UseToggleReturnType = [
 	value: boolean,
-	toggleValue: () => void
+	toggleValue: (value?: boolean) => void
 ];
 
 
@@ -14,7 +14,6 @@ const useToggle = (initialValue: boolean): UseToggleReturnType => {
 	const [value, setValue] = React.useState(initialValue);
 
 	const toggleValue = React.useCallback((value?: boolean)=> {		
-		console.log("Toggle")
 		setValue((prev: boolean)=> value ? value : !prev)
 	}, []);	
 
