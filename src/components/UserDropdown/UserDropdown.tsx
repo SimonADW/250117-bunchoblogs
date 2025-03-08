@@ -1,17 +1,14 @@
-import React from "react";
+
 import style from "./UserDropdown.module.css";
 import { Link } from "react-router-dom";
 import { useAuth0 } from "@auth0/auth0-react";
 import { User } from "react-feather";
 import useToggle from "../../hooks/useToggle";
-import useImageProxy from "../../hooks/useImageProxy";
 
 const UserDropdown = () => {
 	// const [dropDownVisible, setDropDownVisible] = React.useState(false);
 	const [dropDownVisible, toggleDropdown] = useToggle(false);
 	const { loginWithRedirect, logout, isAuthenticated, user } = useAuth0();
-	// Get profile image from proxy	
-	const { imageSrc, loading, error } = useImageProxy(user?.picture);
 
 	// Capitalize first letter of nickname
 	const capitalize = (str: string | undefined) => {
@@ -24,7 +21,7 @@ const UserDropdown = () => {
 			<button className={style.userButton} onClick={()=>toggleDropdown()}>
 				{/* Render button content based on auth status */}
 				{isAuthenticated ? (
-					<img src={imageSrc ? imageSrc : user?.picture} alt="User image or avatar" />
+					<img src={user?.picture} alt="User image or avatar" />
 				) : (
 					<User />
 				)}

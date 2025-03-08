@@ -46,30 +46,6 @@ app.get("/blogs/:id", (req, res) => {
 	}
 });
 
-// Proxy for getting the profile image
-app.get("/gravatar-proxy", async (req, res) => {
-	try {
-		// Get original image UTL from query params
-		const imageUrl = req.query.url;
-		
-		// If no url i spassed return a bad request error
-		if (!imageUrl) return res.status(400).send('Missing imageUrl query parameter');
-
-		// Fetch the image from the original URL
-		const imageResponse = await fetch(imageUrl);
-
-		// Set the content-type of the response to match the image
-		res.setHeader("Content-Type", imageResponse.headers.get("Content-Type"));
-
-		// Send image to the client
-		imageResponse.body.pipe(res);
-	} catch (err) {
-		console.error(err);
-		res.status(500).send('Error fetching image');
-	}
-});
-
-
 // Start the server
 app.listen(3000, () => {
 	console.log('Server listening on port 3000');
