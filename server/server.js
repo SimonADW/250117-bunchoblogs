@@ -50,8 +50,8 @@ app.get("/blogs/:id", (req, res) => {
 app.get("/gravatar-proxy", async (req, res) => {
 	try {
 		// Get original image UTL from query params
-		const imageUrl = req.query.imageUrl;
-
+		const imageUrl = req.query.url;
+		
 		// If no url i spassed return a bad request error
 		if (!imageUrl) return res.status(400).send('Missing imageUrl query parameter');
 

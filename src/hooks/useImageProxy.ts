@@ -8,16 +8,18 @@ const useImageProxy = (imageUrl: string) => {
 	React.useEffect(() => {
 		if (!imageUrl) return;
 		const fetchImage = async () => {
-			const proxyUrl = `${encodeURIComponent(
+			const proxyUrl = `http://localhost:3000/gravatar-proxy?url=${encodeURIComponent(
 				imageUrl
-			)}`;
+			)}`;			
 						
 			try {
 				setLoading(true);
 				const response = await fetch(proxyUrl);
+				if (!response.ok) {
+					throw new Error("Failed to fetch image");
+				}
 				const blob = await response.blob();
-				const objectUrl = URL.createObjectURL(blob);		
-						
+				const objectUrl = URL.createObjectURL(blob);							
 				setImageSrc(objectUrl);
 			} catch (error) {
 				setError("Failed to fetch image");

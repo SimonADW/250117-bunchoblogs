@@ -24,7 +24,7 @@ const UserDropdown = () => {
 			<button className={style.userButton} onClick={()=>toggleDropdown()}>
 				{/* Render button content based on auth status */}
 				{isAuthenticated ? (
-					<img src={imageSrc ? imageSrc : ""} alt="User image or avatar" />
+					<img src={imageSrc ? imageSrc : user?.picture} alt="User image or avatar" />
 				) : (
 					<User />
 				)}
