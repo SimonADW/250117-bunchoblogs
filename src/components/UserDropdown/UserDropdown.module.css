@@ -5,6 +5,12 @@
 	background: var(--secondary-color);
 }
 
+.userInfo {
+	display: flex;	
+	align-items: center;
+	padding: 0.5rem 0.8rem;
+}
+
 .userButton {
 	width: 2.2rem;
 	height: 2.2rem;
