@@ -41,3 +41,46 @@
 	background: var(--button-color);
 	cursor: pointer;
 }
+
+/* Delayed slide down effect on form appearance */
+@keyframes slideDown {
+	0% {
+		transform: translateY(-20px);
+		opacity: 0;
+	}
+	100% {
+		transform: translateY(0);
+		opacity: 1;
+	}
+}
+
+.addBlogpostForm label,
+.addBlogpostForm input,
+.addBlogpostForm textarea, 
+.addBlogpostForm button {
+	animation: slideDown 0.5s ease-in-out backwards;
+}
+
+.addBlogpostForm label:nth-child(1),
+.addBlogpostForm input:nth-child(2) {
+	animation-delay: 0.2s;
+}
+
+.addBlogpostForm label:nth-child(3),
+.addBlogpostForm input:nth-child(4) {
+	animation-delay: 0.4s;
+}
+
+.addBlogpostForm label:nth-child(5),
+.addBlogpostForm textarea:nth-child(6) {
+	animation-delay: 0.6s;
+}
+
+.addBlogpostForm label:nth-child(7),
+.addBlogpostForm input:nth-child(8) {
+	animation-delay: 0.8s;
+}
+
+.addBlogpostForm button {
+	animation-delay: 1s;
+}

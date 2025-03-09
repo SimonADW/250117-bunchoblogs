@@ -11,28 +11,34 @@ import BlogPost from "./components/BlogPost/BlogPost";
 import Footer from "./components/Footer/Footer";
 import BackgroundDot from "./components/BackgroundDot/BackgroundDot";
 import AddBlogpost from "./pages/AddBlogpost";
+import { useAuth0 } from "@auth0/auth0-react";
 
+function App() {
+	const { isAuthenticated } = useAuth0();
 
-function App() {	
 	return (
 		<>
-		<BrowserRouter>
-			<Header>					
-				<NavLink to="/">Home</NavLink>
-				<NavLink to="/blogs">Blog Posts</NavLink>
-			</Header>
+			<BrowserRouter>
+				<Header>
+					<NavLink to="/">Home</NavLink>
+					<NavLink to="/blogs">Blog Posts</NavLink>
+				</Header>
 
-			<main>
-				<BackgroundDot />
-				<Routes>
-					<Route path="/" element={<Home />} />
-					<Route path="/blogs" element={<BlogList />} />
-					<Route path="/blogs/:id" element={<BlogPost />} />
-					<Route path="/add-blog" element={<AddBlogpost />} />
-				</Routes>
-			</main>
-			<Footer />
-		</BrowserRouter>
+				<main>
+					<BackgroundDot />
+					<Routes>
+						<Route path="/" element={<Home />} />
+						<Route path="/blogs" element={<BlogList />} />
+						<Route path="/blogs/:id" element={<BlogPost />} />
+
+						{/* Only access route if authenticated */}
+						{isAuthenticated && (
+							<Route path="/add-blog" element={<AddBlogpost />} />
+						)}
+					</Routes>
+				</main>
+				<Footer />
+			</BrowserRouter>
 		</>
 	);
 }
