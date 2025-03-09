@@ -32,7 +32,7 @@ const Header = ({ children }: ChildrenProps) => {
 					{children}
 				</span>
 
-				<Button onClick={toggleModal}>Share</Button>
+				<Button onClick={()=>toggleModal()}>Share</Button>
 
 				<UserDropdown />	
 

@@ -5,25 +5,30 @@ import { useAuth0 } from "@auth0/auth0-react";
 import { User } from "react-feather";
 import useToggle from "../../hooks/useToggle";
 import useKeydown from "../../hooks/useKeydown";
+import useClickOutside from "../../hooks/useClickOutside";
+import React from "react";
 
 const UserDropdown = () => {
-	const [dropDownVisible, toggleDropdown] = useToggle(false);
 	const { loginWithRedirect, logout, isAuthenticated, user } = useAuth0();
+	const [dropDownVisible, toggleDropdown] = useToggle(false);
+	const dropDownRef = React.useRef<HTMLDivElement>(null);
+
+	// Close dropdown when clicking outside or pressing escape
+	const handleDismiss = React.useCallback(() => {
+		toggleDropdown(false);
+	},[]);
 
 	useKeydown("Escape", handleDismiss);
-
-	function handleDismiss() {
-		toggleDropdown(false);
-	};
+	useClickOutside(dropDownRef, handleDismiss, dropDownVisible);
 
 	// Capitalize first letter of nickname
 	const capitalize = (str: string | undefined) => {
 		if (!str) return;
 		return str.charAt(0).toUpperCase() + str.slice(1);
 	};
-	
+		
 	return (
-		<div className={style.userContainer}>
+		<div className={style.userContainer} ref={dropDownRef}>
 			<button className={style.userButton} onClick={()=>toggleDropdown()}>
 				{/* Render button content based on auth status */}
 				{isAuthenticated ? (
