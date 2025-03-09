@@ -10,9 +10,7 @@ function useClickOutside(
 		// If isOpen is passed, and it is false, return early
 		if (isOpen === false) return;
 
-		function handleClickOutside(event: MouseEvent | TouchEvent) {			
-			console.log(event.target);
-			
+		function handleClickOutside(event: MouseEvent | TouchEvent) {						
 			if (!ref.current || ref.current.contains(event.target as Node)) {
 				return;
 			} 
