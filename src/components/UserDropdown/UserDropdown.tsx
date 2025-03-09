@@ -59,7 +59,7 @@ const UserDropdown = () => {
 							<Link
 								className={style.dropDownLink}
 								onClick={() => setDropdownVisible(false)}
-								to={"/blogs/1"}
+								to={"/add-blog"}
 							>
 								New Blogpost
 							</Link>

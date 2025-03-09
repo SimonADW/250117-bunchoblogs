@@ -10,6 +10,7 @@ import Home from "./pages/Home";
 import BlogPost from "./components/BlogPost/BlogPost";
 import Footer from "./components/Footer/Footer";
 import BackgroundDot from "./components/BackgroundDot/BackgroundDot";
+import AddBlogpost from "./pages/AddBlogpost";
 
 
 function App() {	
@@ -27,6 +28,7 @@ function App() {
 					<Route path="/" element={<Home />} />
 					<Route path="/blogs" element={<BlogList />} />
 					<Route path="/blogs/:id" element={<BlogPost />} />
+					<Route path="/add-blog" element={<AddBlogpost />} />
 				</Routes>
 			</main>
 			<Footer />
