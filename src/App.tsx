@@ -1,4 +1,3 @@
-import "./assets/logo/bunchoblogs-logo.jpeg";
 import "./assets/styles/reset.css";
 import "./assets/styles/variables.css";
 import "./assets/styles/fonts.css";

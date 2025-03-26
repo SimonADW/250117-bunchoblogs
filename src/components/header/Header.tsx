@@ -1,4 +1,4 @@
-import logo from "../../assets/logo/bunchoblogs-logo.jpeg";
+import logo from "/public/bunchoblogslogo-note.png";
 import style from "./Header.module.css";
 import { ChildrenProps } from "../../types/types";
 import Button from "../Button/Button";
