@@ -8,12 +8,26 @@
 	background: var(--secondary-color);
 }
 
+.addBlogpostForm h2 {
+	margin-bottom: var(--spacing-xlarge);	
+	font-size: 2rem;
+	font-weight: 600;
+	letter-spacing: 4px;
+}
+
+.addBlogpostForm h2 span {
+	background: linear-gradient(90deg, var(--active-color), var(--button-color));
+	color:  transparent;
+	background-clip: text;
+} 
+
 .addBlogpostForm label {
 	width: 100%;
 	max-width: 25rem;
 	margin-bottom: 0.25rem;
 	display: flex;
 	justify-content: flex-start;
+	font-weight: 600;
 }
 
 /* Color label of the focused input */
