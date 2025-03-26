@@ -1,4 +1,3 @@
-import logo from "/public/bunchoblogslogo-note.png";
 import style from "./Header.module.css";
 import { ChildrenProps } from "../../types/types";
 import Button from "../Button/Button";
@@ -15,7 +14,6 @@ const Header = ({ children }: ChildrenProps) => {
 	return (
 		<header className={style.home__header}>
 			<Link to={"/"} className={style.logoContainer}>
-				<img src={logo} alt="logo" />
 				<GradientHeading
 					angleDegrees={90}
 					color1={"var(--button-color)"}

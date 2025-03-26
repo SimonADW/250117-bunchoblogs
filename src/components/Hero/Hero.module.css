@@ -1,6 +1,28 @@
 .heroSection {
-	font-size: 1.2rem;
 	display: flex;
 	flex-direction: column;
-	gap: 0.5rem;
+	gap: 1rem;
+}
+
+.heroSection div { 
+	font-size: 4rem;
+}
+
+.heroSection p {
+	font-size: calc(var(--font-size-lg) * 1.5);
+} 
+/* Dont wrap in middle of Bunch o`blogs */
+.heroSection div span {
+	white-space: nowrap;
+}
+
+
+@media screen and (max-width: 768px) {
+	.heroSection div { 
+		font-size: calc(var(--font-size-lg) * 1.5);
+	}
+
+	.heroSection p {
+		font-size: var(--font-size-base);		
+	}
 }

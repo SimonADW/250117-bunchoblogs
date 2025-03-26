@@ -1,5 +1,5 @@
 .userContainer {
-	position: relative;	
+	/* position: relative;	 */
 	display: flex;
 	align-items: center;
 	background: var(--secondary-color);
@@ -29,11 +29,11 @@
 
 .userDropdown {
 	position: absolute;
-	top: 3.5rem;
-	right: 0;
+	top: 8.5rem;
+	right: var(--spacing-large);
 	z-index: 1;
 
-	width: 16rem;
+	width: 20rem;
 	border-radius: var(--border-radius-base);
 	overflow: hidden;
 	box-shadow: 3px 3px 8px 0px var(--secondary-color);
@@ -65,4 +65,19 @@
 .dropDownLink:hover,
 .userDropdown button:hover {	
 	background-color: rgb(197, 194, 194);
+}
+
+/* Dropdown menu push below header, and right  */
+@media screen and (max-width: 767px) {	
+	.userDropdown {
+		top: 12.5rem;
+		right: 0;
+	}
+}
+
+/* Dropdown get full width on less than 500px width */
+@media screen and (max-width: 500px) {	
+	.userDropdown {
+		width: 100%;
+	}
 }

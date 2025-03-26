@@ -1,6 +1,7 @@
 .addBlogpostForm {	
 	width: 100%;
 	padding: 5rem var(--spacing-small);
+	border-radius: var(--border-radius-base);
 	display: flex;
 	flex-direction: column;
 	align-items: center;	
@@ -16,7 +17,7 @@
 }
 
 .addBlogpostForm h2 span {
-	background: linear-gradient(90deg, var(--active-color), var(--button-color));
+	background: linear-gradient(90deg, var(--active-color), var(--primary-color));
 	color:  transparent;
 	background-clip: text;
 } 
@@ -68,6 +69,8 @@
 	}
 }
 
+
+.addBlogpostForm h2,
 .addBlogpostForm label,
 .addBlogpostForm input,
 .addBlogpostForm textarea, 
@@ -75,23 +78,27 @@
 	animation: slideDown 0.5s ease-in-out backwards;
 }
 
-.addBlogpostForm label:nth-child(1),
-.addBlogpostForm input:nth-child(2) {
+.addBlogpostForm h2 {
+	animation-delay: 0.1s;
+}
+
+.addBlogpostForm label:nth-child(2),
+.addBlogpostForm input:nth-child(3) {
 	animation-delay: 0.2s;
 }
 
-.addBlogpostForm label:nth-child(3),
-.addBlogpostForm input:nth-child(4) {
+.addBlogpostForm label:nth-child(4),
+.addBlogpostForm input:nth-child(5) {
 	animation-delay: 0.4s;
 }
 
-.addBlogpostForm label:nth-child(5),
-.addBlogpostForm textarea:nth-child(6) {
+.addBlogpostForm label:nth-child(6),
+.addBlogpostForm textarea:nth-child(7) {
 	animation-delay: 0.6s;
 }
 
-.addBlogpostForm label:nth-child(7),
-.addBlogpostForm input:nth-child(8) {
+.addBlogpostForm label:nth-child(8),
+.addBlogpostForm input:nth-child(9) {
 	animation-delay: 0.8s;
 }
 
