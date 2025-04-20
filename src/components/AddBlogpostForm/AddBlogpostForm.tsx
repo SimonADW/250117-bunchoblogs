@@ -1,5 +1,6 @@
 import { useForm, SubmitHandler } from 'react-hook-form';
 import style from './AddBlogpostForm.module.css';
+import TextEditor from '../TextEditor/TextEditor';
 
 
 type Inputs = {
@@ -28,14 +29,15 @@ const AddBlogpostForm = () => {
 		{errors.author && <span>This field is required</span>}
 
 		<label htmlFor='content'>Content</label>
-		<textarea id='content' placeholder='Compose your blog content' {...register("content", { required: true })} />
+		{/* <textarea id='content' placeholder='Compose your blog content' {...register("content", { required: true })} /> */}
+		<TextEditor />
 		{errors.content && <span>This field is required</span>}
 
 		<label htmlFor='tags'>Tags</label>
 		<input id='tags' placeholder='Add tags separated by commas' {...register("tags")} />
 		{errors.tags && <span>This field is required</span>}
 
-		<button type="submit">Submit new post</button>
+		<button className={style.blogFormSubmitButton} type="submit">Submit new post</button>
 	</form>	
   )
 }

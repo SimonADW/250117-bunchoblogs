@@ -1,0 +1,7 @@
+.textEditor {
+	background: var(--primary-color);
+	color: var(--secondary-color);
+	width: 100%;
+	max-width: 25rem;
+	margin-bottom: 3rem;
+}

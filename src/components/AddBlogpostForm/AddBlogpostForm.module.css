@@ -45,7 +45,7 @@
 	padding: 5px;
 }
 
-.addBlogpostForm button {
+.addBlogpostForm .blogFormSubmitButton {
 	width: 100%;
 	max-width: 25rem;
 	border: none;
@@ -74,7 +74,7 @@
 .addBlogpostForm label,
 .addBlogpostForm input,
 .addBlogpostForm textarea, 
-.addBlogpostForm button {
+.addBlogpostForm .blogFormSubmitButton {
 	animation: slideDown 0.5s ease-in-out backwards;
 }
 
@@ -102,6 +102,6 @@
 	animation-delay: 0.8s;
 }
 
-.addBlogpostForm button {
+.addBlogpostForm .blogFormSubmitButton {
 	animation-delay: 1s;
 }
