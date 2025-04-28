@@ -13,8 +13,9 @@ import AddBlogpost from "./pages/AddBlogpost";
 import { useAuth0 } from "@auth0/auth0-react";
 
 function App() {
-	const { isAuthenticated } = useAuth0();
+	const { isAuthenticated, user } = useAuth0();
 
+	
 	return (
 		<>
 			<BrowserRouter>
@@ -29,6 +30,7 @@ function App() {
 						<Route path="/" element={<Home />} />
 						<Route path="/blogs" element={<BlogList />} />
 						<Route path="/blogs/:id" element={<BlogPost />} />
+						<Route path="/blogs/my-posts" element={<BlogList writer={user?.name}/>} />
 
 						{/* Only access route if authenticated */}
 						{isAuthenticated && (

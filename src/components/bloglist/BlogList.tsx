@@ -5,20 +5,25 @@ import useBlog from "../../hooks/useBlog.ts";
 import LoadingSpinner from "../LoadingSpinner/LoadingSpinner.tsx";
 import SearchBar from "../SearchBar/SearchBar.tsx";
 
-const BlogList = () => {
+type BlogListPropsType = {
+	writer?: string | undefined;
+};
+
+const BlogList = ({ writer }: BlogListPropsType) => {
 	const { getBlogPosts, blogPosts, loading } = useBlog();
 	const [searchInput, setSearchInput] = useState("");
-
+	
 	useEffect(() => {
 		getBlogPosts();
 	}, [getBlogPosts]);
 
-	// Filter blogspost based on search input
+	// Filter blogspost based on writer or search input
 	const filteredBlogPosts = useMemo(() => {
-		return blogPosts.filter((post) =>
-			post.title.toLowerCase().includes(searchInput)
+		return blogPosts
+			.filter((post) => writer ? post.author === writer : post) // If writer prop is present
+			.filter((post) => post.title.toLowerCase().includes(searchInput)  // Filter from searchInput
 		);
-	}, [searchInput, blogPosts]);
+	}, [writer, searchInput, blogPosts]);
 
 	return (
 		<>

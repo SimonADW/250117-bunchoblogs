@@ -28,6 +28,7 @@ const SearchBar = ({
 				<div className={style.searchFieldWrapper}>
 					<TfiSearch />
 					<input
+						name="search-field"
 						type="text"
 						placeholder="Search blogs..."
 						onChange={handleChange}
