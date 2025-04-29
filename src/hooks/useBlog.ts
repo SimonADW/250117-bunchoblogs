@@ -51,8 +51,8 @@ const useBlog = ()=> {
 		}			
 	}, [])
 		
-	const postBlogPost = async () => {
-		console.log("Posting blog post...");
+	const postBlogPost = async (newBlog: BlogPostType) => {
+		console.log("Posting blog post...", newBlog);
 	}
 
 	const deleteBlogPost = async () => {

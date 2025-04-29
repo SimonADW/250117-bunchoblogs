@@ -34,7 +34,7 @@ function App() {
 
 						{/* Only access route if authenticated */}
 						{isAuthenticated && (
-							<Route path="/add-blog" element={<AddBlogpost />} />
+							<Route path="/add-blog" element={<AddBlogpost userName={user?.name} />} />
 						)}
 					</Routes>
 				</main>

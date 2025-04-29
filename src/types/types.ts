@@ -11,5 +11,7 @@ export type BlogPostType = {
 	content: string;
 	date: string;
 	author: string;
-	imageUrl: string;
+	tags: string | string[];
+	imageUrl?: string;
+	userName: string;
 }
