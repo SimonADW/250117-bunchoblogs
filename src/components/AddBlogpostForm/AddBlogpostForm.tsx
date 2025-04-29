@@ -22,18 +22,27 @@ const AddBlogpostForm = ({ userName }: AddblogpostformPropTypes) => {
 		control,
 		formState: { errors },
 	} = useForm<Inputs>();
+
+	// Submit handler function
 	const onSubmit: SubmitHandler<Inputs> = (data) => {
 		// Create array from tags
-		const tagsArray = [data.tags.split(",")];
+		const tagsArray = data.tags.split(",");
+
 		// Add id, userName and date to blog data
-		const formDataWithUserName = {
+		const blogPostData = {
 			...data,
 			id: crypto.randomUUID(),
 			tags: tagsArray,
 			date: Date.now(),
-			userName,
+			userName
 		};
-		postBlogPost(formDataWithUserName);
+
+		// Post blogpost data to server
+		postBlogPost(blogPostData);
+
+		// Display confirmation
+		
+
 	};
 
 	return (

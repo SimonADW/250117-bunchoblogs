@@ -7,6 +7,9 @@ const { loadBlogPosts, addBlogPost } = require('./data.js');
 // Get blogposts from data.json (via data.js)
 const blogPosts = loadBlogPosts();
 
+// Middleware to parse JSON
+app.use(express.json());
+
 // Satisfy CORS policy
 app.use(
 	cors({
@@ -45,6 +48,21 @@ app.get("/blogs/:id", (req, res) => {
 		res.status(500).json({ message: "Server error" });
 	}
 });
+
+// Post new blog and add to end of data.json array
+app.post("/blogs/add-post", (req, res)=> {
+	try {
+		const newBlogPost = req.body;
+		console.log(newBlogPost);
+		
+		addBlogPost(newBlogPost);
+	} catch (err) {
+		res.status(500).json({ message: "Server error" });
+	}
+
+	console.log("POST request received")
+})
+
 
 // Start the server
 app.listen(3000, () => {

@@ -6,12 +6,13 @@ export type ChildrenProps = {
 }
 
 export type BlogPostType = {
-	id: number;
+	id: string; // UUID
 	title: string;
 	content: string;
-	date: string;
+	date: number; // Timestamp
 	author: string;
-	tags: string | string[];
+	tags: string[];
 	imageUrl?: string;
 	userName: string;
 }
+
