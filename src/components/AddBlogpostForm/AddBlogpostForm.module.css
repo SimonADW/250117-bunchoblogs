@@ -73,7 +73,7 @@
 .addBlogpostForm h2,
 .addBlogpostForm label,
 .addBlogpostForm input,
-.addBlogpostForm textarea, 
+.addBlogpostForm div, 
 .addBlogpostForm .blogFormSubmitButton {
 	animation: slideDown 0.5s ease-in-out backwards;
 }
@@ -93,7 +93,7 @@
 }
 
 .addBlogpostForm label:nth-child(6),
-.addBlogpostForm textarea:nth-child(7) {
+.addBlogpostForm div:nth-child(7) {
 	animation-delay: 0.6s;
 }
 

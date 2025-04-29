@@ -1,4 +1,4 @@
-import { useForm, SubmitHandler } from 'react-hook-form';
+import { useForm, SubmitHandler, Controller } from 'react-hook-form';
 import style from './AddBlogpostForm.module.css';
 import TextEditor from '../TextEditor/TextEditor';
 
@@ -12,7 +12,7 @@ type Inputs = {
 
 
 const AddBlogpostForm = () => {
-	const { register, handleSubmit, watch, formState: { errors } } = useForm<Inputs>();
+	const { register, handleSubmit, control, formState: { errors } } = useForm<Inputs>();
 	const onSubmit: SubmitHandler<Inputs> = data => console.log(data);
 
 
@@ -29,8 +29,15 @@ const AddBlogpostForm = () => {
 		{errors.author && <span>This field is required</span>}
 
 		<label htmlFor='content'>Content</label>
-		{/* <textarea id='content' placeholder='Compose your blog content' {...register("content", { required: true })} /> */}
-		<TextEditor />
+		{/* React-Quill in TextEditor, wrapped in Controller to handle text-editing */}
+		<Controller 
+			name="content"
+			control={control}
+			rules={{required: true}}
+			render={({field})=> (
+				<TextEditor value={field.value} onChange={field.onChange} placeholderText="Blog away!"/>
+			)}
+		/>
 		{errors.content && <span>This field is required</span>}
 
 		<label htmlFor='tags'>Tags</label>
