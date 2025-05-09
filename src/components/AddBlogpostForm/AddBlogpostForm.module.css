@@ -102,6 +102,11 @@
 	animation-delay: 0.8s;
 }
 
+.addBlogpostForm label:nth-child(10),
+.addBlogpostForm input:nth-child(11) {
+	animation-delay: 0.8s;
+}
+
 .addBlogpostForm .blogFormSubmitButton {
 	animation-delay: 1s;
 }

@@ -2,12 +2,14 @@ import { useForm, SubmitHandler, Controller } from "react-hook-form";
 import style from "./AddBlogpostForm.module.css";
 import TextEditor from "../TextEditor/TextEditor";
 import useBlog from "../../hooks/useBlog";
+import { uploadImage } from "../../utils/uploadImage";
 
 type Inputs = {
 	title: string;
 	author: string;
 	content: string;
 	tags: string;
+	image: FileList;
 };
 
 type AddblogpostformPropTypes = {
@@ -24,9 +26,20 @@ const AddBlogpostForm = ({ userName }: AddblogpostformPropTypes) => {
 	} = useForm<Inputs>();
 
 	// Submit handler function
-	const onSubmit: SubmitHandler<Inputs> = (data) => {
+	const onSubmit: SubmitHandler<Inputs> = async (data) => {
 		// Create array from tags
 		const tagsArray = data.tags.split(",");
+
+		// Upload image
+		let imageUrl = "";
+		if (data.image?.[0]) {
+			try {
+				imageUrl = await uploadImage(data.image[0]);
+			} catch (error) {
+				console.error("Image upload failed:", error);
+				return;
+			}
+		}
 
 		// Add id, userName and date to blog data
 		const blogPostData = {
@@ -34,14 +47,14 @@ const AddBlogpostForm = ({ userName }: AddblogpostformPropTypes) => {
 			id: crypto.randomUUID(),
 			tags: tagsArray,
 			date: Date.now(),
-			userName
+			userName,
+			imageUrl, // ImageUrl from the uploadImage function
 		};
 
 		// Post blogpost data to server
 		postBlogPost(blogPostData);
 
-		// Display confirmation
-		
+		// TODO: Display confirmation
 
 	};
 
@@ -49,6 +62,7 @@ const AddBlogpostForm = ({ userName }: AddblogpostformPropTypes) => {
 		<form
 			onSubmit={handleSubmit(onSubmit)}
 			className={style.addBlogpostForm}
+			encType="multipart/form-data" // Required for file uploads
 		>
 			<h2>
 				Share the <span>magic</span> here
@@ -93,6 +107,15 @@ const AddBlogpostForm = ({ userName }: AddblogpostformPropTypes) => {
 				{...register("tags")}
 			/>
 			{errors.tags && <span>This field is required</span>}
+
+			<label htmlFor="image">Upload an image</label>
+			<input
+				type="file"
+				id="image"
+				accept="image/*"
+				{...register("image", { required: true })}
+			/>
+			{errors.image && <span>An image is required</span>}
 
 			<button className={style.blogFormSubmitButton} type="submit">
 				Submit new post
