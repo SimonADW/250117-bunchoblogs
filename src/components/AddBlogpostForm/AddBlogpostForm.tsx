@@ -14,9 +14,10 @@ type Inputs = {
 
 type AddblogpostformPropTypes = {
 	userName: string;
+	setNewBlogPostLink: React.Dispatch<React.SetStateAction<string | null>>;
 };
 
-const AddBlogpostForm = ({ userName }: AddblogpostformPropTypes) => {
+const AddBlogpostForm = ({ userName, setNewBlogPostLink }: AddblogpostformPropTypes) => {
 	const { postBlogPost } = useBlog();
 	const {
 		register,
@@ -55,8 +56,8 @@ const AddBlogpostForm = ({ userName }: AddblogpostformPropTypes) => {
 		// Post blogpost data to server
 		postBlogPost(blogPostData);
 
-		// TODO: Display confirmation
-
+		// Display confirmation and provide link to post
+		setNewBlogPostLink(`/blogs/${blogPostData.id}`)
 	};
 
 	return (

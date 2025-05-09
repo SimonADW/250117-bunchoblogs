@@ -52,9 +52,7 @@ const useBlog = ()=> {
 	}, [])
 		
 	// POST NEW BLOGPOST
-	const postBlogPost = async (newBlog: BlogPostType) => {
-		console.log(newBlog);
-		
+	const postBlogPost = async (newBlog: BlogPostType) => {		
 		setLoading(true);	
 		
 		try {
@@ -72,6 +70,8 @@ const useBlog = ()=> {
 
 			const data = await response.json();
 			console.log("Blog post successfully posted:", data);
+			return response.ok;
+			
 		} catch (error) {
 			if (error instanceof Error) {
 				throw new Error(error.message);
@@ -81,6 +81,8 @@ const useBlog = ()=> {
 		} finally {
 			setLoading(false);
 		}
+
+		
 	}
 
 	const deleteBlogPost = async () => {
