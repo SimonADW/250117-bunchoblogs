@@ -34,6 +34,7 @@ const AddBlogpostForm = ({ userName }: AddblogpostformPropTypes) => {
 		let imageUrl = "";
 		if (data.image?.[0]) {
 			try {
+				// Upload image and get new url in return
 				imageUrl = await uploadImage(data.image[0]);
 			} catch (error) {
 				console.error("Image upload failed:", error);

@@ -10,14 +10,14 @@ type BlogPostProps = {
 
 // Blog list item, anchor-link to the respective blog-page
 const BlogListItem = ({ blogPost }: BlogPostProps) => {
-	const imagePath = `http://localhost:3000/static/images/${blogPost.id}-${blogPost.imageUrl}`;
+	const imagePath = `http://localhost:3000/static/images/${blogPost.imageUrl}`;
 
 	// Format date
 	const date = new Date(blogPost.date);
 	const formattedDate = date.toLocaleDateString("en-US", {year: "numeric", month: "long", day: "numeric"});
 
 	// Parse blogpost content from HTML
-	const parsedBlogContent = parse(blogPost.content)
+	const parsedBlogContent = parse(blogPost.content.toString());
 
 
 	return (

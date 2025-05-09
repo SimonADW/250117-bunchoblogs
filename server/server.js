@@ -3,6 +3,9 @@ const express = require('express');
 const app = express();
 const cors = require('cors');
 const { loadBlogPosts, addBlogPost } = require('./data.js');
+// Require multer for uploading files
+const multer = require("multer");
+
 
 // Get sanitized blogposts from data.json (via data.js)
 const blogPosts = loadBlogPosts();
@@ -19,7 +22,7 @@ app.use(
 	})
 );
 
-// Serve static files ( images ) 
+// Serve static files ( images ) ----------------------
 app.use('/static', express.static(path.join(__dirname, 'public')));
 
 // Serve the blog posts
@@ -50,7 +53,7 @@ app.get("/blogs/:id", (req, res) => {
 	}
 });
 
-// Post new blog and add to end of data.json array
+// Post new blog and add to end of data.json array ----------------------
 app.post("/blogs/add-post", (req, res)=> {
 	try {
 		const newBlogPost = req.body;
@@ -64,8 +67,18 @@ app.post("/blogs/add-post", (req, res)=> {
 	console.log("POST request received")
 })
 
+// Post new image to server/public/images ----------------------
+const upload = multer({ dest: "public/images/" });
 
-// Start the server
+app.post("/upload", upload.single("image"), (req, res) => {
+    if (!req.file) {
+        return res.status(400).json({ message: "No file uploaded" });
+    }
+    res.status(200).json({ imageUrl: `${req.file.filename}` });
+});
+
+
+// Start the server ----------------------
 app.listen(3000, () => {
 	console.log('Server listening on port 3000');
 });

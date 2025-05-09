@@ -40,7 +40,7 @@ const BlogPost = () => {
 	// Get image path
 	let imagePath;
 	if (blogPost) {
-		imagePath = `http://localhost:3000/static/images/${blogPost.id}-${blogPost.imageUrl}`;
+		imagePath = `http://localhost:3000/static/images/${blogPost.imageUrl}`;
 	}
 
 	// Loading spinner
