@@ -1,10 +1,11 @@
 import { useParams } from "react-router-dom";
 import useBlog from "../../hooks/useBlog";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import LoadingSpinner from "../LoadingSpinner/LoadingSpinner";
 import { BlogPostType } from "../../types/types";
 import Button from "../Button/Button";
 import style from "./BlogPost.module.css";
+import parse from 'html-react-parser';
 
 // Page to fetch and render single blogpost
 // TODO: Clean up fetch (renders unnececary?)
@@ -16,11 +17,16 @@ const BlogPost = () => {
 	useEffect(() => {
 		const handleGetSingleBlogPost = async () => {
 			if (!params.id) return;
-
-			try {
+			
+			try {				
+				// Get single blogpost based on url-params
 				const currentBlogpost: BlogPostType = await getSingleBlogPost(
 					params.id
 				);
+				
+				// Parse blogpost content from HTML
+				currentBlogpost.content = parse(currentBlogpost.content.toString());
+				
 				setBlogPost(currentBlogpost);
 			} catch (error) {
 				console.log("Error fetching blog: ", error);
@@ -31,13 +37,16 @@ const BlogPost = () => {
 	}, [params.id, getSingleBlogPost]);
 
 	
-
+	// Get image path
 	let imagePath;
 	if (blogPost) {
 		imagePath = `http://localhost:3000/static/images/${blogPost.id}-${blogPost.imageUrl}`;
 	}
 
+	// Loading spinner
 	if (loading) return <LoadingSpinner />;
+	
+	// User feedback when error
 	if (!blogPost)
 		return (
 			<p>

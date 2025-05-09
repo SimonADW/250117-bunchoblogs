@@ -8,7 +8,7 @@ export type ChildrenProps = {
 export type BlogPostType = {
 	id: string; // UUID
 	title: string;
-	content: string;
+	content: string | React.JSX.Element | React.JSX.Element[];
 	date: number; // Timestamp
 	author: string;
 	tags: string[];

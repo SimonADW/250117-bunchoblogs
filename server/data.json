@@ -147,7 +147,7 @@
 		"title": "Catcy Blog Title - Must Read!",
 		"author": "Simon Winter",
 		"tags": ["must read", " read this", " blogpost"],
-		"content": ",<script>alert('This should be cleared by the sanitizer in data.js)</script><p>This is a must read! </p><p><strong>Read this!</strong></p><p>It should be clear by now, that this is a must read? If not: </p><p><a href=\"http://localhost:5173/blogs/8\" rel=\"noopener noreferrer\" target=\"_blank\">read-this! </a></p><p><br></p><p><u>This is underlined. </u></p><p><br></p><ul><li>A bullet point</li><li>One more bullet point! </li></ul><p><br></p><h3>A sub heading for the next section</h3><p>More blog content here. </p>",
+		"content": "<script>alert('This should be cleared by the sanitizer in data.js)</script><p>This is a must read! </p><p><strong>Read this!</strong></p><p>It should be clear by now, that this is a must read? If not: </p><p><a href=\"http://localhost:5173/blogs/8\" rel=\"noopener noreferrer\" target=\"_blank\">read-this! </a></p><p><br></p><p><u>This is underlined. </u></p><p><br></p><ul><li>A bullet point</li><li>One more bullet point! </li></ul><p><br></p><h3>A sub heading for the next section</h3><p>More blog content here. </p>",
 		"id": "2e7a913e-4c50-45ee-a802-1af18efe4789",
 		"date": 1746167829207,
 		"userName": "mrwintersir@hotmail.com"
