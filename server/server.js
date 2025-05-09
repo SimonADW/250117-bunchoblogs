@@ -7,9 +7,6 @@ const { loadBlogPosts, addBlogPost } = require('./data.js');
 const multer = require("multer");
 
 
-// Get sanitized blogposts from data.json (via data.js)
-const blogPosts = loadBlogPosts();
-
 // Middleware to parse JSON
 app.use(express.json());
 
@@ -27,6 +24,9 @@ app.use('/static', express.static(path.join(__dirname, 'public')));
 
 // Serve the blog posts
 app.get('/', (req, res) => {
+	// Get sanitized blogposts from data.json (via data.js)
+	const blogPosts = loadBlogPosts();
+
 	console.log('Get request received');
 	setTimeout(() => {
 		// Simulate Loadtime
@@ -38,6 +38,8 @@ app.get('/', (req, res) => {
 // Single blog post serving ----------------------
 app.get("/blogs/:id", (req, res) => {
 	console.log("SINGLE Request received");
+	// Get sanitized blogposts from data.json (via data.js)
+	const blogPosts = loadBlogPosts();
 	try {
 		const blog = blogPosts.filter((blogpost)=> blogpost.id.toString() === req.params.id.toString());
 		
