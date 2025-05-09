@@ -4,7 +4,7 @@ const app = express();
 const cors = require('cors');
 const { loadBlogPosts, addBlogPost } = require('./data.js');
 
-// Get blogposts from data.json (via data.js)
+// Get sanitized blogposts from data.json (via data.js)
 const blogPosts = loadBlogPosts();
 
 // Middleware to parse JSON
@@ -36,10 +36,11 @@ app.get('/', (req, res) => {
 app.get("/blogs/:id", (req, res) => {
 	console.log("SINGLE Request received");
 	try {
-		const blog = blogPosts[Number(req.params.id - 1)];  // Use index of the blogpost
+		const blog = blogPosts.filter((blogpost)=> blogpost.id.toString() === req.params.id.toString());
+		
 		setTimeout(() => {
 			// Simulate Loadtime
-			res.status(200).json(blog);
+			res.status(200).json(blog[0]);
 		}, 300);
 
 		if (!blog) return res.status(404).json({ message: "Blog not found" });

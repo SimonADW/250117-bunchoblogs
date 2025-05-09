@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom";
 import useBlog from "../../hooks/useBlog";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import LoadingSpinner from "../LoadingSpinner/LoadingSpinner";
 import { BlogPostType } from "../../types/types";
 import Button from "../Button/Button";
@@ -9,17 +9,17 @@ import style from "./BlogPost.module.css";
 // Page to fetch and render single blogpost
 // TODO: Clean up fetch (renders unnececary?)
 const BlogPost = () => {
-	const [blogPost, setBlogPost] = React.useState<null | BlogPostType>(null);
+	const [blogPost, setBlogPost] = useState<null | BlogPostType>(null);
 	const { getSingleBlogPost, loading } = useBlog();
 	const params = useParams();
 
-	React.useEffect(() => {
+	useEffect(() => {
 		const handleGetSingleBlogPost = async () => {
 			if (!params.id) return;
 
 			try {
 				const currentBlogpost: BlogPostType = await getSingleBlogPost(
-					Number(params.id)
+					params.id
 				);
 				setBlogPost(currentBlogpost);
 			} catch (error) {

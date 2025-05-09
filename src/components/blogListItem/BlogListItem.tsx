@@ -2,6 +2,7 @@ import style from "./BlogListItem.module.css";
 import { TfiPencil } from "react-icons/tfi";
 import type { BlogPostType } from "../../types/types";
 import { Link } from "react-router-dom";
+import parse from 'html-react-parser';
 
 type BlogPostProps = {
 	blogPost: BlogPostType;
@@ -15,11 +16,15 @@ const BlogListItem = ({ blogPost }: BlogPostProps) => {
 	const date = new Date(blogPost.date);
 	const formattedDate = date.toLocaleDateString("en-US", {year: "numeric", month: "long", day: "numeric"});
 
+	// Parse blogpost content from HTML
+	const parsedBlogContent = parse(blogPost.content)
+
+
 	return (
 		<Link to={`/blogs/${blogPost.id}`} className={style.blogListItem}>
 			<div className={style.blogListItem__contentWrapper}>
 				<h2>{blogPost.title}</h2>
-				<p className={style.blogContent}>{blogPost.content}</p>
+				<p className={style.blogContent}>{parsedBlogContent}</p>
 				<div className={style.dateAndAuthorWrapper}>
 					<span>{formattedDate}</span>
 					<div className={style.author}>

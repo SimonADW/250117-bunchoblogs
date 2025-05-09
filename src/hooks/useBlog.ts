@@ -29,7 +29,7 @@ const useBlog = ()=> {
 	}, []);
 
 	// FETCH SINGLE BLOGPOST
-	const getSingleBlogPost = React.useCallback(async (id: number): Promise<BlogPostType>=> {
+	const getSingleBlogPost = React.useCallback(async (id: string): Promise<BlogPostType>=> {
 		setLoading(true);	
 		try {
 			const response = await fetch(`http://localhost:3000/blogs/${id}`);
