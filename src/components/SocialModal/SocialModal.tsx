@@ -20,7 +20,7 @@ const SocialModal = ({ handleDismiss }: SocialModalProps) => {
 	return (
 		
 		<RemoveScroll>
-			<FocusLock returnFocus>
+			<FocusLock returnFocus >
 				<div
 					className={style.socialModalBackdrop}
 					onClick={handleClickOutside}
