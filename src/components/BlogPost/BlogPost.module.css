@@ -1,3 +1,17 @@
+.backButton {
+	position: absolute;
+	top: calc(var(--spacing-large) * 9);
+	left: 2rem;
+}
+
+.backButton svg {
+	transition: transform 150ms ease-in-out;
+}
+
+.backButton:hover svg {
+  transform: scale(1.25);
+}
+
 .blogPostHeading {
 	font-family: Georgia, 'Times New Roman', Times, serif;
 	font-size: calc(var(--font-size-lg) * 3) ;
@@ -27,5 +41,13 @@
 @media screen and (max-width: 768px) {
 	.blogPostHeading {
 		font-size: calc(var(--font-size-lg) * 2) 
+	}
+}
+
+@media screen and (max-width: 1080px) {
+	.backButton {
+		position: relative;
+		top: 0;
+		left: 0;
 	}
 }

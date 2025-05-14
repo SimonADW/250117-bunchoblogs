@@ -6,30 +6,37 @@ import { Link } from "react-router-dom";
 import Button from "../components/Button/Button";
 
 type AddblogpostPropTypes = {
-	userName: string;
+	userEmail: string;
 };
 
-const AddBlogpost = ({ userName }: AddblogpostPropTypes) => {
+const AddBlogpost = ({ userEmail }: AddblogpostPropTypes) => {
 	const { loading } = useBlog();
 	const [newBlogPostLink, setNewBlogPostLink] = useState<string | null>(null);
 
+	// Display loading spinner
 	if (loading) return <LoadingSpinner />;
+	
+	// Display confirm message
 	if (newBlogPostLink)
 		return (
 			<h2
-				style={{
+				style={{                    
 					fontSize: "36px",
 					color: "var(--secondary-color)",
 					fontFamily: "georgia",
+          paddingTop: "40%",
+          textAlign: "center",
 				}}
 			>
 				Congrats on your new post! Check it out{" "}
-				<Link to={`${newBlogPostLink}`}>
+        {/* Link to bloglist if no new post */}
+				<Link to={newBlogPostLink ? `${newBlogPostLink}` : "/blogs"}>
 					<Button>HERE</Button>
 				</Link>
 			</h2>
 		);
-
+	
+	// Display form (Default)
 	return (
 		<>
 			<h2
@@ -42,7 +49,7 @@ const AddBlogpost = ({ userName }: AddblogpostPropTypes) => {
 				New blogpost in the making...?
 			</h2>
 			<AddBlogpostForm
-				userName={userName}
+				userEmail={userEmail}
 				setNewBlogPostLink={setNewBlogPostLink}
 			/>
 		</>

@@ -13,11 +13,11 @@ type Inputs = {
 };
 
 type AddblogpostformPropTypes = {
-	userName: string;
+	userEmail: string;
 	setNewBlogPostLink: React.Dispatch<React.SetStateAction<string | null>>;
 };
 
-const AddBlogpostForm = ({ userName, setNewBlogPostLink }: AddblogpostformPropTypes) => {
+const AddBlogpostForm = ({ userEmail, setNewBlogPostLink }: AddblogpostformPropTypes) => {
 	const { postBlogPost } = useBlog();
 	const {
 		register,
@@ -43,13 +43,13 @@ const AddBlogpostForm = ({ userName, setNewBlogPostLink }: AddblogpostformPropTy
 			}
 		}
 
-		// Add id, userName and date to blog data
+		// Add id, userEmail and date to blog data
 		const blogPostData = {
 			...data,
 			id: crypto.randomUUID(),
 			tags: tagsArray,
 			date: Date.now(),
-			userName,
+			userEmail,
 			imageUrl, // ImageUrl from the uploadImage function
 		};
 

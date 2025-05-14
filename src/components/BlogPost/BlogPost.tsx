@@ -6,6 +6,7 @@ import { BlogPostType } from "../../types/types";
 import Button from "../Button/Button";
 import style from "./BlogPost.module.css";
 import parse from 'html-react-parser';
+import { ChevronLeft } from "react-feather";
 
 // Page to fetch and render single blogpost
 // TODO: Clean up fetch (renders unnececary?)
@@ -61,6 +62,9 @@ const BlogPost = () => {
 
 	return (
 		<>
+			<button className={style.backButton} onClick={()=> window.history.back()} >
+				<ChevronLeft color="var(--secondary-color)" size={"3rem"}/>
+			</button>
 			<h1 className={style.blogPostHeading}>{blogPost.title}</h1>
 			<div className={style.blogPost__AuthorDateWrapper}>
 				<span className={style.blogPost__author}>{blogPost.author}</span>

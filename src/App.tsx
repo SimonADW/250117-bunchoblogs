@@ -30,11 +30,13 @@ function App() {
 						<Route path="/" element={<Home />} />
 						<Route path="/blogs" element={<BlogList />} />
 						<Route path="/blogs/:id" element={<BlogPost />} />
-						<Route path="/blogs/my-posts" element={<BlogList writer={user?.name}/>} />
 
 						{/* Only access route if authenticated */}
 						{(isAuthenticated && user) && (
-							<Route path="/add-blog" element={<AddBlogpost userName={user.name as string} />} />
+							<>							
+								<Route path="/blogs/my-posts" element={<BlogList writer={user.email}/>} />
+								<Route path="/add-blog" element={<AddBlogpost userEmail={user.email as string} />} />
+							</>
 						)}
 					</Routes>
 				</main>

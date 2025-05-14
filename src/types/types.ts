@@ -13,6 +13,6 @@ export type BlogPostType = {
 	author: string;
 	tags: string[];
 	imageUrl?: string;
-	userName: string;
+	userEmail: string;
 }
 
