@@ -14,5 +14,6 @@ export type BlogPostType = {
 	tags: string[];
 	imageUrl?: string;
 	userEmail: string;
+	authorId: string;
 }
 

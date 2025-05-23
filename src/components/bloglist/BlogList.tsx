@@ -20,7 +20,7 @@ const BlogList = ({ writer }: BlogListPropsType) => {
 	// Filter blogspost based on writer or search input
 	const filteredBlogPosts = useMemo(() => {
 		return blogPosts
-			.filter((post) => writer ? post.userEmail === writer : post) // If writer prop is present
+			.filter((post) => writer ? post.authorId === writer : post) // If writer prop is present sort only my posts
 			.filter((post) => post.title.toLowerCase().includes(searchInput)  // Filter from searchInput
 		);
 	}, [writer, searchInput, blogPosts]);
