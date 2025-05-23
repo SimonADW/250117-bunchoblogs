@@ -34,8 +34,8 @@ function App() {
 						{/* Only access route if authenticated */}
 						{(isAuthenticated && user) && (
 							<>							
-								<Route path="/blogs/my-posts" element={<BlogList writer={user.sub}/>} />
-								<Route path="/add-blog" element={<AddBlogpost userEmail={user.email as string} authorId={user.sub} />} />
+								<Route path="/blogs/my-posts" element={<BlogList author={user.sub}/>} />
+								<Route path="/add-blog" element={<AddBlogpost userEmail={user.email as string} authorId={user.sub as string} />} />
 							</>
 						)}
 					</Routes>

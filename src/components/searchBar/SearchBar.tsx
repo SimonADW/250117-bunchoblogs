@@ -2,6 +2,7 @@ import React from "react";
 import style from "./SearchBar.module.css";
 import { TfiSearch } from "react-icons/tfi";
 import { X as Close } from "react-feather";
+import { useLocation } from "react-router-dom";
 
 type SearchBarProps = {
 	searchInput: string;
@@ -9,12 +10,17 @@ type SearchBarProps = {
 	numberOfReults: number;
 };
 
+// Component for bloglist search, including list heading
 const SearchBar = ({
 	searchInput,
 	setSearchInput,
 	numberOfReults,
 }: SearchBarProps) => {
 	const inputRef = React.useRef<HTMLInputElement>(null);
+	const location = useLocation();
+
+	const isMyPosts = location.pathname === "/blogs/my-posts";
+
 	const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
 		const value = event.target.value.toLowerCase();
 		setSearchInput(value);
@@ -23,7 +29,12 @@ const SearchBar = ({
 	return (
 		<>
 			<div className={style.searchBar}>
-				<p>{numberOfReults} Blogs</p>
+				{/* Display "My posts..." heading if url is blogs/my-posts */}
+				{isMyPosts ? (
+					<h2>My Blogposts - {numberOfReults} result{numberOfReults > 1 && "s"}</h2>  // Pluralize result if needed
+				) : (
+					<h2>{numberOfReults} Blogpost{numberOfReults > 1 && "s"} </h2> // Pluralize result if needed
+				)}
 
 				<div className={style.searchFieldWrapper}>
 					<TfiSearch />

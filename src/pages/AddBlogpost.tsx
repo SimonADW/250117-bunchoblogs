@@ -7,9 +7,10 @@ import Button from "../components/Button/Button";
 
 type AddblogpostPropTypes = {
 	userEmail: string;
+	authorId: string;
 };
 
-const AddBlogpost = ({ userEmail }: AddblogpostPropTypes) => {
+const AddBlogpost = ({ userEmail, authorId }: AddblogpostPropTypes) => {
 	const { loading } = useBlog();
 	const [newBlogPostLink, setNewBlogPostLink] = useState<string | null>(null);
 
@@ -50,6 +51,7 @@ const AddBlogpost = ({ userEmail }: AddblogpostPropTypes) => {
 			</h2>
 			<AddBlogpostForm
 				userEmail={userEmail}
+				authorId={authorId}
 				setNewBlogPostLink={setNewBlogPostLink}
 			/>
 		</>

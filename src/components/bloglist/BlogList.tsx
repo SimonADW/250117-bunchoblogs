@@ -6,10 +6,10 @@ import LoadingSpinner from "../LoadingSpinner/LoadingSpinner.tsx";
 import SearchBar from "../SearchBar/SearchBar.tsx";
 
 type BlogListPropsType = {
-	writer?: string | undefined;
+	author?: string;
 };
 
-const BlogList = ({ writer }: BlogListPropsType) => {
+const BlogList = ({ author }: BlogListPropsType) => {
 	const { getBlogPosts, blogPosts, loading } = useBlog();
 	const [searchInput, setSearchInput] = useState("");
 	
@@ -17,13 +17,13 @@ const BlogList = ({ writer }: BlogListPropsType) => {
 		getBlogPosts();
 	}, [getBlogPosts]);
 
-	// Filter blogspost based on writer or search input
+	// Filter blogspost based on author or search input
 	const filteredBlogPosts = useMemo(() => {
 		return blogPosts
-			.filter((post) => writer ? post.authorId === writer : post) // If writer prop is present sort only my posts
+			.filter((post) => author ? post.authorId === author : post) // If author prop is present sort only my posts
 			.filter((post) => post.title.toLowerCase().includes(searchInput)  // Filter from searchInput
 		);
-	}, [writer, searchInput, blogPosts]);
+	}, [author, searchInput, blogPosts]);
 
 	return (
 		<>
