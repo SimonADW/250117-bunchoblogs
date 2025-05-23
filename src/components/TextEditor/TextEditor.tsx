@@ -13,8 +13,7 @@ const TextEditor = ({
 	onChange,
 	placeholderText,
 }: TextEditorPropsType) => {
-  
-  // Customize editor toolbar
+	// Customize editor toolbar
 	const modules = {
 		toolbar: [
 			[{ header: [2, 3, 4, false] }], // Only h2, h3, and normal text
@@ -33,7 +32,7 @@ const TextEditor = ({
 		"list",
 		"bullet",
 		"link",
-    "clean",
+		"clean",
 	];
 
 	return (
@@ -43,8 +42,8 @@ const TextEditor = ({
 				value={value}
 				onChange={onChange}
 				placeholder={placeholderText}
-        modules={modules}
-        formats={formats}
+				modules={modules}
+				formats={formats}
 			/>
 		</div>
 	);
