@@ -6,14 +6,16 @@ export type ChildrenProps = {
 }
 
 export type BlogPostType = {
-	id: string; // UUID
+	// From form input
 	title: string;
-	content: string | React.JSX.Element | React.JSX.Element[];
-	date: number; // Timestamp
 	author: string;
+	content: string | React.JSX.Element | React.JSX.Element[];
 	tags: string[];
 	imageUrl?: string;
-	userEmail: string;
-	authorId: string;
+	// Added properties
+	id: string; // UUID
+	date: number; // Timestamp
+	authorId: string; // From auth0 user.sub
+	userEmail: string; // From auth0
 }
 

@@ -32,13 +32,11 @@
 }
 
 /* Color label of the focused input */
-.addBlogpostForm label:has(+input:focus),
-.addBlogpostForm label:has(+textarea:focus) {
+.addBlogpostForm label:has(+input:focus) {
 	color: var(--button-color);
 }
 
-.addBlogpostForm input, 
-.addBlogpostForm textarea {
+.addBlogpostForm input {
 	width: 100%;	
 	max-width: 25rem;
 	margin-bottom: 3rem;
