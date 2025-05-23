@@ -71,7 +71,7 @@ const BlogPost = () => {
 				<span>{formattedDate}</span>
 			</div>
 			<img src={imagePath} alt={blogPost.title} className={style.blogPost__image}></img>
-			<p className={style.blogPost__content}>{blogPost.content}</p>
+			<div className={style.blogPost__content}>{blogPost.content}</div>
 		</>
 	);
 };

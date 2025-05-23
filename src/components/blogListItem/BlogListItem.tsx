@@ -24,7 +24,7 @@ const BlogListItem = ({ blogPost }: BlogPostProps) => {
 		<Link to={`/blogs/${blogPost.id}`} className={style.blogListItem}>
 			<div className={style.blogListItem__contentWrapper}>
 				<h2>{blogPost.title}</h2>
-				<p className={style.blogContent}>{parsedBlogContent}</p>
+				<div className={style.blogContent}>{parsedBlogContent}</div>
 				<div className={style.dateAndAuthorWrapper}>
 					<span>{formattedDate}</span>
 					<div className={style.author}>

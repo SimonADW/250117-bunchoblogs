@@ -1,5 +1,4 @@
 .blogListItem {
-	
 	border: 1px solid lightgray;
 	border-radius: var(--border-radius-base);
 	overflow: hidden;
@@ -8,7 +7,7 @@
 	background-color: white;
 	transition: transform 300ms;
 	transform-origin: center; /* Ensure scaling happens from the center */
-    will-change: transform; /* Optimize for the scale animations */
+	will-change: transform; /* Optimize for the scale animations */
 }
 
 /* Every other card gradient background */
@@ -17,30 +16,30 @@
 }
 
 .blogListItem:hover {
-	transform: scale(1.008);	
+	transform: scale(1.008);
 }
 
 .blogListItem__contentWrapper {
 	display: flex;
-	flex-direction: column;	
+	flex-direction: column;
 	gap: var(--spacing-small);
 	padding: var(--spacing-base) var(--spacing-large);
-	padding-right: 3rem; 
+	padding-right: 3rem;
 }
 
-.blogListItem__contentWrapper div {
-	margin-top: auto;
+.blogContent {
+	/* Push date and author to bottom */
+	margin-bottom: auto;
 }
-
 
 .blogListItem h2 {
-	font-family:Georgia, 'Times New Roman', Times, serif;
+	font-family: Georgia, "Times New Roman", Times, serif;
 	font-weight: var(--font-weight-bold);
 }
 
 .blogContent {
 	/* To clamp the content to two lines */
-	display: -webkit-box; 
+	display: -webkit-box;
 	-webkit-box-orient: vertical;
 	-webkit-line-clamp: 2;
 	line-clamp: 2; /* For compatibility */
@@ -51,6 +50,7 @@
 .dateAndAuthorWrapper {
 	display: flex;
 	gap: var(--spacing-base);
+	align-items: end;
 }
 
 .author {
@@ -61,24 +61,27 @@
 }
 
 .blogListItem img {
-	width: clamp(100px, 25%, 200px);	
+	width: clamp(100px, 35%, 200px);
 	transition: transform 300ms;
 }
 
 @media screen and (max-width: 768px) {
-
 	.blogListItem img {
-		width: 100%;	
+		width: 100%;
 	}
-	
+
 	.blogListItem {
 		flex-direction: column-reverse;
 		border: none;
-		border-bottom: 2px solid var(--secondary-color);
-		border-radius: 0;
-
+		/* border-bottom: 2px solid var(--secondary-color); */
+		border-radius: 5px;
+		background: linear-gradient(
+			120deg,
+			white 60%,
+			var(--button-color) 300%
+		);
 	}
-	
+
 	.blogListItem__contentWrapper {
 		/* padding: var(--spacing-base) 0; */
 	}

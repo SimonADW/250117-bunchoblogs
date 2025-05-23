@@ -58,9 +58,7 @@ app.get("/blogs/:id", (req, res) => {
 // Post new blog and add to end of data.json array ----------------------
 app.post("/blogs/add-post", (req, res)=> {
 	try {
-		const newBlogPost = req.body;
-		console.log(newBlogPost);
-		
+		const newBlogPost = req.body;		
 		addBlogPost(newBlogPost);
 	} catch (err) {
 		res.status(500).json({ message: "Server error" });
