@@ -71,7 +71,7 @@
 	transition: 300ms ease;
 }
 
-/* First card styles */
+/* First and 11th card large styles */
 .blogListItem:nth-child(1),
 .blogListItem:nth-child(11) {
 	padding-top: var(--spacing-xlarge);
@@ -96,7 +96,7 @@
 .blogListItem:nth-child(1) .blogContent,
 .blogListItem:nth-child(11) .blogContent {
 	-webkit-line-clamp: 4;
-	line-clamp: 4; /* For compatibility */
+	line-clamp: 4; 
 }
 
 .blogListItem:nth-child(1) img,
@@ -106,8 +106,6 @@
 
 
 @media screen and (max-width: 768px) {
-
-
 	.blogListItem {
 		grid-column: span 6;
 		border-radius: 5px;	
@@ -117,4 +115,11 @@
 		height: 100%;
 		aspect-ratio: 1/1;
 	}
+
+	.blogListItem:nth-child(1),
+	.blogListItem:nth-child(11) {
+		grid-template-columns: 1fr;
+	}
+
+
 }
