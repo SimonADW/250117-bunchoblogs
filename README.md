@@ -1,15 +1,51 @@
-# Personal project to practice React and Node.js
-* To better understand Node with express.
-* To get practice using memoization
+# Bunch o' Blogs
+
+A personal hobby project to practice and explore Node.js, along with React and auth0. 
+
+## Goals
+
+- Gain hands-on experience with Node.js and Express for backend development.
+- Learn about authentication and authorization using Auth0.
+- Explore accessibility best practices in React, including modules like `react-focus-lock`.
+- Practice safe HTML handling, including sanitizing and parsing HTML on the backend.
+
+## Features
+
+- **Authentication:** Integrates Auth0 for secure user authentication.
+- **Accessibility:** Utilizes accessibility-focused modules (e.g., `react-focus-lock`) to improve user experience.
+- **HTML Sanitization:** Implements backend HTML sanitization and parsing to ensure safe content handling.
+- **React Frontend:** Modern React-based UI for interacting with blog content.
+
+## Sample Blog Post Object
+
+Example of a blog post object from `data.json`:
+
+```json
+	{
+		"id": 8,
+		"title": "The Revival of Folk Music",
+		"author": "Chris Green",
+		"authorId": "",
+		"date": "2023-03-15",
+		"content": "Folk music has seen a revival in recent years, with new artists bringing fresh perspectives to traditional sounds. This post examines the resurgence of folk music. Artists like Mumford & Sons and The Lumineers have popularized the genre, blending folk with modern influences. The revival has sparked a renewed interest in acoustic instruments and storytelling through music.",
+		"tags": ["Folk Music", "Revival", "Artists"],
+		"userEmail": "blablabla@hotmail.com",
+		"imageUrl": "folk-music.webp"
+	},
+```
+
+## Notes
+
+- This project is for learning and experimentation.
+- Focus areas include node.js, authentication, accessibility, and secure content handling.
+
+---
+
+## Areas to improve
+- Store blog-data in a database (mongoDB?)
+- Add edit and delete functionality
 
 
+*Created as a personal learning project by Simon.*
 
-* User object that will be recieved from Auth0
-Sample user:
-{
-  "sub": "auth0|67c85c8856e672bbc7be7da0",
-  "nickname": "mrwintersir",
-  "name": "mrwintersir@hotmail.com",
-  "picture": "https://s.gravatar.com/avatar/48287f603071e7df4633f2e08cad2d36?s=480&r=pg&d=https%3A%2F%2Fcdn.auth0.com%2Favatars%2Fmr.png",
-  "updated_at": "2025-03-05T14:16:00.970Z"
-}
+
