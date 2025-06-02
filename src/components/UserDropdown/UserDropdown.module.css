@@ -44,12 +44,8 @@
 }
 
 .userDropdown hr {	
-	border-top: 3px solid var(--button-color);
+	border-top: 3px solid var(--active-color);
 }
-
-.dropdownNickname {
-	/* background: linear-gradient(var(--primary-color), rgb(240, 215, 187));  */
-} 
 
 .dropdownNickname,  
 .userDropdown button { 

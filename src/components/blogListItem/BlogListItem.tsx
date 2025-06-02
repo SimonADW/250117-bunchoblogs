@@ -22,9 +22,8 @@ const BlogListItem = ({ blogPost }: BlogPostProps) => {
 
 	return (
 		<Link to={`/blogs/${blogPost.id}`} className={style.blogListItem}>
+			<img src={imagePath} alt={blogPost.title} />
 			<div className={style.blogListItem__contentWrapper}>
-				<h2>{blogPost.title}</h2>
-				<div className={style.blogContent}>{parsedBlogContent}</div>
 				<div className={style.dateAndAuthorWrapper}>
 					<span>{formattedDate}</span>
 					<div className={style.author}>
@@ -32,8 +31,11 @@ const BlogListItem = ({ blogPost }: BlogPostProps) => {
 						<span>{blogPost.author}</span>
 					</div>
 				</div>
+				<h2>{blogPost.title}</h2>
+				<div className={style.blogContent}>{parsedBlogContent}</div>
+				<p className={style.readMoreParagraph}>Read more...</p>
 			</div>
-			<img src={imagePath} alt={blogPost.title} />
+
 		</Link>
 	);
 };
