@@ -10,15 +10,13 @@ type BlogListPropsType = {
 };
 
 const BlogList = ({ author }: BlogListPropsType) => {
-	const { getBlogPosts, blogPosts, loading } = useBlog();
 	const [searchInput, setSearchInput] = useState("");
+	const { useAllBlogPosts } = useBlog();
+	const { blogPosts, isLoading, error } = useAllBlogPosts();
 	
-	useEffect(() => {
-		getBlogPosts();
-	}, [getBlogPosts]);
-
 	// Filter blogspost based on author or search input
 	const filteredBlogPosts = useMemo(() => {
+		if (!blogPosts) return [];
 		return blogPosts
 			.filter((post) => author ? post.authorId === author : post) // If author prop is present sort only my posts
 			.filter((post) => post.title.toLowerCase().includes(searchInput)  // Filter from searchInput
@@ -33,7 +31,7 @@ const BlogList = ({ author }: BlogListPropsType) => {
 					setSearchInput={setSearchInput}
 					numberOfReults={filteredBlogPosts.length}
 				/>
-				{loading ? (
+				{isLoading ? (
 					<LoadingSpinner />
 				) : (
 					<ul className={style.blogList}>

@@ -1,95 +1,77 @@
-import React, { useState } from "react";
+import { useState, useCallback } from "react";
+import useSWR, { mutate as globalMutate } from "swr";
 import { BlogPostType } from "../types/types";
 
-const useBlog = ()=> {	
-	const [blogPosts, setBlogPosts] = useState<BlogPostType[]>([]);
+const fetcher = (url: string) => fetch(url).then(res => {
+	if (!res.ok) throw new Error(`HTTP Error, status: ${res.status}`);
+	return res.json();
+});
+
+// Hook for all blog posts
+function useAllBlogPosts() {
+	const { data: blogPosts, isLoading, error } = useSWR<BlogPostType[]>(
+		"http://localhost:3000/",
+		fetcher,
+		{ revalidateOnMount: true, revalidateOnFocus: false }
+	);
+	return { blogPosts, isLoading, error };
+}
+
+// Hook for a single blog post
+function useSingleBlogPost(id: string | null) {
+	const shouldFetch = id ? `http://localhost:3000/blogs/${id}` : null;
+	const { data: singleBlogPost, isLoading, error } = useSWR<BlogPostType>(shouldFetch, fetcher);
+	return { singleBlogPost, isLoading, error }
+}
+
+// Mutations (post and delete, etc)
+function useBlogMutations() {
 	const [loading, setLoading] = useState(false);
 
-	// FETCH ALL BLOGSPOSTS
-	const getBlogPosts = React.useCallback(async () => {
-		setLoading(true);		
-		try {
-			const response = await fetch("http://localhost:3000/");
-			
-			if (!response.ok) {
-				throw new Error(`HTTP Error, status: ${response.status}`);
-			}
-			
-			const data = await response.json();			
-			setBlogPosts(data);					
-		} catch(error) {
-			if(error instanceof Error) {
-				throw new Error(error.message);
-			} else {
-				throw new Error("An unknown error has occurred");
-			}
-		} finally {
-			setLoading(false);	
-		}		
-	}, []);
-
-	// FETCH SINGLE BLOGPOST
-	const getSingleBlogPost = React.useCallback(async (id: string): Promise<BlogPostType>=> {
-		setLoading(true);	
-		try {
-			const response = await fetch(`http://localhost:3000/blogs/${id}`);
-			
-			if (!response.ok) {
-				throw new Error(`HTTP Error, status: ${response.status}`);
-			}
-			
-			const data = await response.json();						
-			return data;
-		} catch(error) {
-			if(error instanceof Error) {
-				throw new Error(error.message);
-			} else {
-				throw new Error("An unknown error has occurred");
-			}
-		} finally {
-			setLoading(false);	
-		}				
-	}, [])
-		
-	// POST NEW BLOGPOST
-	const postBlogPost = async (newBlog: BlogPostType) => {		
-		setLoading(true);	
-		
+	const postBlogPost = async (newBlog: BlogPostType) => {
+		setLoading(true);
 		try {
 			const response = await fetch("http://localhost:3000/blogs/add-post", {
 				method: "POST",
-				headers: {
-					"Content-Type": "application/json",
-				},
+				headers: { "Content-Type": "application/json" },
 				body: JSON.stringify(newBlog),
 			});
-
-			if (!response.ok) {
-				throw new Error(`HTTP Error, status: ${response.status}`);
-			}
-
+			if (!response.ok) throw new Error(`HTTP Error, status: ${response.status}`);
 			const data = await response.json();
-			console.log("Blog post successfully posted:", data);
-			return response.ok;
-			
-		} catch (error) {
-			if (error instanceof Error) {
-				throw new Error(error.message);
-			} else {
-				throw new Error("An unknown error has occurred");
-			}
+
+			// Revalidate and update the cached list of blog posts
+			globalMutate("http://localhost:3000/");
+			return data;
 		} finally {
 			setLoading(false);
 		}
+	};
 
-		
-	}
+	const deleteBlogPost = async (id: string) => {
+		setLoading(true);
+		try {
+			const response = await fetch(`http://localhost:3000/blogs/${id}`, {
+				method: "DELETE",
+			});
+			if (!response.ok) throw new Error(`HTTP Error, status: ${response.status}`);
+			
+			// Revalidate and update the cached list of blog posts
+			globalMutate("http://localhost:3000/");
+		} finally {
+			setLoading(false);
+		}
+	};
 
-	const deleteBlogPost = async () => {
-		console.log("Deleting blog post...");
-	}
+	return { postBlogPost, deleteBlogPost, loading };
+}
 
-	return { blogPosts, getBlogPosts, postBlogPost, deleteBlogPost, getSingleBlogPost, loading };	
+// Main hook to export
+function useBlog() {
+	return {
+		useAllBlogPosts,
+		useSingleBlogPost,
+		useBlogMutations,
+	};
 }
 
 export default useBlog;
