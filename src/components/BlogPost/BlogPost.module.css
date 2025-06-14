@@ -1,3 +1,11 @@
+.errorFindingBlogpost {
+	max-width: 400px;
+	margin: 0 auto;
+	font-size: var(--font-size-lg);
+	text-align: center;
+	line-height: 2;
+}
+
 .backButton {
 	position: absolute;
 	top: calc(var(--spacing-large) * 9);

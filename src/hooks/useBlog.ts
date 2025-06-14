@@ -1,4 +1,4 @@
-import { useState, useCallback } from "react";
+import { useState } from "react";
 import useSWR, { mutate as globalMutate } from "swr";
 import { BlogPostType } from "../types/types";
 
@@ -9,12 +9,8 @@ const fetcher = (url: string) => fetch(url).then(res => {
 
 // Hook for all blog posts
 function useAllBlogPosts() {
-	const { data: blogPosts, isLoading, error } = useSWR<BlogPostType[]>(
-		"http://localhost:3000/",
-		fetcher,
-		{ revalidateOnMount: true, revalidateOnFocus: false }
-	);
-	return { blogPosts, isLoading, error };
+	const {data: blogPosts, isLoading, error} = useSWR<BlogPostType[]>("http://localhost:3000/", fetcher);		
+	return { blogPosts, isLoading, error }
 }
 
 // Hook for a single blog post

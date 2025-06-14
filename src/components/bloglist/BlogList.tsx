@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { useMemo, useState } from "react";
 import BlogListItem from "../BlogListItem/BlogListItem.tsx";
 import style from "./BlogList.module.css";
 import useBlog from "../../hooks/useBlog.ts";
@@ -9,6 +9,7 @@ type BlogListPropsType = {
 	author?: string;
 };
 
+// TODO: Fix extra render when navigating back from single post
 const BlogList = ({ author }: BlogListPropsType) => {
 	const [searchInput, setSearchInput] = useState("");
 	const { useAllBlogPosts } = useBlog();
@@ -16,13 +17,17 @@ const BlogList = ({ author }: BlogListPropsType) => {
 	
 	// Filter blogspost based on author or search input
 	const filteredBlogPosts = useMemo(() => {
-		if (!blogPosts) return [];
+		if (!blogPosts) {
+			return [];
+		}
+
 		return blogPosts
 			.filter((post) => author ? post.authorId === author : post) // If author prop is present sort only my posts
 			.filter((post) => post.title.toLowerCase().includes(searchInput)  // Filter from searchInput
 		);
 	}, [author, searchInput, blogPosts]);
 
+	console.log("Bloglist rendered");
 	return (
 		<>
 			<div className={style.blogListwrapper}>
